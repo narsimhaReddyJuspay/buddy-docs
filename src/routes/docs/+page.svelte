@@ -30,38 +30,33 @@
   <!-- Integration paths — primary CTA cards -->
   <h2 id="choose-integration">Choose Your Integration</h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6 not-prose">
-    <a href="/docs/daily/web-sdk" class="doc-card group">
-      <div class="flex h-9 w-9 items-center justify-center rounded-lg" style="background: color-mix(in srgb, var(--buddy-purple) 12%, transparent);">
-        <svg class="h-4.5 w-4.5" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m7 21 5-3 5 3"/></svg>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 not-prose">
+    <a href="/docs/daily/overview" class="doc-card group">
+      <div class="flex h-10 w-10 items-center justify-center rounded-lg" style="background: color-mix(in srgb, var(--buddy-purple) 12%, transparent);">
+        <svg class="h-5 w-5" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m7 21 5-3 5 3"/></svg>
       </div>
       <div>
-        <span class="text-sm font-semibold text-foreground">Daily WebRTC</span>
-        <p class="text-xs text-muted-foreground mt-1 leading-relaxed">Browser & mobile voice sessions with low-latency streaming</p>
+        <span class="text-base font-semibold text-foreground">Daily WebRTC</span>
+        <p class="text-sm text-muted-foreground mt-1.5 leading-relaxed">Integrate real-time voice AI into web and mobile apps using Daily's WebRTC infrastructure. Low-latency audio streaming, RTVI events, and recording support.</p>
       </div>
-      <span class="mt-auto text-xs font-medium" style="color: var(--buddy-purple-light);">Get started &#8594;</span>
+      <div class="flex items-center gap-2 mt-auto pt-2">
+        <span class="text-xs font-medium" style="color: var(--buddy-purple-light);">Get started &#8594;</span>
+        <span class="badge-purple text-[0.5625rem]">WebRTC</span>
+      </div>
     </a>
 
-    <a href="/docs/telephony/twilio" class="doc-card group">
-      <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-red-500/10">
-        <svg class="h-4.5 w-4.5 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <a href="/docs/telephony/overview" class="doc-card group">
+      <div class="flex h-10 w-10 items-center justify-center rounded-lg" style="background: color-mix(in srgb, var(--buddy-orange) 12%, transparent);">
+        <svg class="h-5 w-5" style="color: var(--buddy-orange-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </div>
       <div>
-        <span class="text-sm font-semibold text-foreground">Twilio</span>
-        <p class="text-xs text-muted-foreground mt-1 leading-relaxed">Outbound & inbound calls via Twilio Media Streams</p>
+        <span class="text-base font-semibold text-foreground">Telephony</span>
+        <p class="text-sm text-muted-foreground mt-1.5 leading-relaxed">Place and receive phone calls through Twilio, Plivo, or Exotel. Outbound campaigns, inbound routing, and warm transfer to human agents.</p>
       </div>
-      <span class="mt-auto text-xs font-medium" style="color: var(--buddy-purple-light);">Configure &#8594;</span>
-    </a>
-
-    <a href="/docs/telephony/plivo" class="doc-card group">
-      <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/10">
-        <svg class="h-4.5 w-4.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div class="flex items-center gap-2 mt-auto pt-2">
+        <span class="text-xs font-medium" style="color: var(--buddy-orange-light);">Configure &#8594;</span>
+        <span class="badge-orange text-[0.5625rem]">PSTN</span>
       </div>
-      <div>
-        <span class="text-sm font-semibold text-foreground">Plivo / Exotel</span>
-        <p class="text-xs text-muted-foreground mt-1 leading-relaxed">PSTN calling via Plivo or Exotel with streaming audio</p>
-      </div>
-      <span class="mt-auto text-xs font-medium" style="color: var(--buddy-purple-light);">Configure &#8594;</span>
     </a>
   </div>
 
@@ -72,16 +67,110 @@
     Push a lead with your template configuration via the API. The platform handles the entire voice interaction lifecycle:
   </p>
 
-  <FlowDiagram steps={[
-    "Push Lead",
-    "Validate",
-    "Cron Pickup",
-    "Pre-checks",
-    "Call / Room",
-    "Voice Pipeline",
-    "Conversation",
-    "Webhooks"
-  ]} />
+  <!-- Vertical flow diagram -->
+  <div class="my-8 not-prose">
+    <div class="flex flex-col items-center">
+      <!-- Step 1 -->
+      <div class="flow-node flow-node-accent">
+        <div class="flow-node-icon">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </div>
+        <div>
+          <span class="flow-node-title">Push Lead via API</span>
+          <span class="flow-node-desc">POST /push/lead/v2 with template & payload</span>
+        </div>
+      </div>
+      <div class="flow-line"></div>
+
+      <!-- Step 2 -->
+      <div class="flow-node">
+        <div class="flow-node-icon">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div>
+          <span class="flow-node-title">Validate Template & Payload</span>
+          <span class="flow-node-desc">Schema match, number blacklist, template existence</span>
+        </div>
+      </div>
+      <div class="flow-line"></div>
+
+      <!-- Branch -->
+      <div class="flow-node">
+        <div class="flow-node-icon">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+        </div>
+        <div>
+          <span class="flow-node-title">Route by Execution Mode</span>
+          <span class="flow-node-desc">DAILY or TELEPHONY</span>
+        </div>
+      </div>
+
+      <!-- Branch split -->
+      <div class="flex w-full max-w-md mt-0">
+        <div class="flex-1 flex flex-col items-center">
+          <div class="flow-line"></div>
+          <div class="flow-branch-node flow-branch-purple">
+            <svg class="h-3.5 w-3.5 mr-1.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m7 21 5-3 5 3"/></svg>
+            Daily Room
+          </div>
+        </div>
+        <div class="flex-1 flex flex-col items-center">
+          <div class="flow-line"></div>
+          <div class="flow-branch-node flow-branch-orange">
+            <svg class="h-3.5 w-3.5 mr-1.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Phone Call
+          </div>
+        </div>
+      </div>
+
+      <!-- Merge lines -->
+      <div class="flex w-full max-w-md">
+        <div class="flex-1 flex justify-center"><div class="flow-line"></div></div>
+        <div class="flex-1 flex justify-center"><div class="flow-line"></div></div>
+      </div>
+      <div class="w-full max-w-md flex items-center px-8">
+        <div class="flex-1 h-px bg-border"></div>
+        <div class="h-3 w-px bg-border"></div>
+        <div class="flex-1 h-px bg-border"></div>
+      </div>
+      <div class="flow-line"></div>
+
+      <!-- Step 4 -->
+      <div class="flow-node">
+        <div class="flow-node-icon">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
+        <div>
+          <span class="flow-node-title">Voice Pipeline</span>
+          <span class="flow-node-desc">STT &#8594; LLM &#8594; TTS real-time processing</span>
+        </div>
+      </div>
+      <div class="flow-line"></div>
+
+      <!-- Step 5 -->
+      <div class="flow-node">
+        <div class="flow-node-icon">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <span class="flow-node-title">Conversation</span>
+          <span class="flow-node-desc">LLM navigates template nodes via function calling</span>
+        </div>
+      </div>
+      <div class="flow-line"></div>
+
+      <!-- Step 6 -->
+      <div class="flow-node flow-node-accent">
+        <div class="flow-node-icon">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <span class="flow-node-title">Webhook Callback</span>
+          <span class="flow-node-desc">Transcription, collected data, outcome & analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="not-prose">
     <ol class="step-list my-6 list-none pl-0">

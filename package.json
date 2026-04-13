@@ -27,5 +27,8 @@
     "typescript": "^5.9.3",
     "vite": "^7.2.2"
   },
-  "packageManager": "pnpm@9.15.1"
+  "packageManager": "pnpm@9.15.1",
+  "dependencies": {
+    "mermaid": "^11.14.0"
+  }
 }

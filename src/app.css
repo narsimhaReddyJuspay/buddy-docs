@@ -315,3 +315,82 @@
 .badge-neutral {
   @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-[0.6875rem] font-semibold bg-muted text-muted-foreground border border-border;
 }
+
+/* ===== Code syntax coloring ===== */
+.code-highlight {
+  color: #e2e8f0;
+}
+.code-block pre {
+  color: #e2e8f0;
+}
+/* Mermaid diagram container */
+.mermaid-container {
+  @apply my-6 rounded-xl border border-border overflow-hidden;
+}
+.mermaid-container .mermaid {
+  @apply flex justify-center p-6;
+}
+.mermaid-container .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Vertical Flow Diagram ===== */
+.flow-node {
+  @apply flex items-center gap-3 w-full max-w-md rounded-xl border border-border bg-card px-4 py-3 shadow-xs;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.flow-node:hover {
+  border-color: var(--color-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.flow-node-accent {
+  border-color: var(--buddy-purple);
+  background: linear-gradient(135deg, oklch(0.97 0.01 280), var(--color-card));
+}
+:is(.dark) .flow-node-accent {
+  background: linear-gradient(135deg, oklch(0.22 0.03 280), var(--color-card));
+}
+.flow-node-icon {
+  @apply flex items-center justify-center h-8 w-8 shrink-0 rounded-lg;
+  background: oklch(0.95 0.02 280);
+  color: var(--buddy-purple);
+}
+:is(.dark) .flow-node-icon {
+  background: oklch(0.25 0.04 280);
+  color: var(--buddy-purple-light);
+}
+.flow-node-title {
+  @apply block text-sm font-semibold leading-tight;
+  color: var(--color-foreground);
+}
+.flow-node-desc {
+  @apply block text-xs leading-snug mt-0.5;
+  color: var(--color-muted-foreground);
+}
+.flow-line {
+  @apply w-px bg-border;
+  height: 24px;
+}
+.flow-branch-node {
+  @apply flex items-center text-xs font-medium px-3 py-2 rounded-lg border;
+  transition: border-color 0.2s, background 0.2s;
+}
+.flow-branch-purple {
+  border-color: var(--buddy-purple);
+  background: oklch(0.96 0.02 280);
+  color: var(--buddy-purple);
+}
+:is(.dark) .flow-branch-purple {
+  background: oklch(0.22 0.04 280);
+  color: var(--buddy-purple-light);
+}
+.flow-branch-orange {
+  border-color: var(--buddy-orange);
+  background: oklch(0.96 0.03 50);
+  color: var(--buddy-orange);
+}
+:is(.dark) .flow-branch-orange {
+  background: oklch(0.22 0.04 50);
+  color: var(--buddy-orange-light);
+}
