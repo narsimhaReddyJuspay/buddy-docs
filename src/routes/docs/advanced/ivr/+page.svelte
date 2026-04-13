@@ -7,7 +7,7 @@
 
 <div class="prose">
   <h1>IVR Routing</h1>
-  <p class="text-muted-foreground text-lg mb-8">Route inbound calls to the right voice agent when multiple templates share a single phone number.</p>
+  <p class="text-muted-foreground text-lg mb-8">Route <a href="/docs/telephony/inbound">inbound calls</a> to the right voice agent when multiple <a href="/docs/templates/overview">templates</a> share a single phone number.</p>
 
   <h2 id="overview">Overview</h2>
   <p>

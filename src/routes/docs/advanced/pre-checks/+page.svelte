@@ -14,7 +14,7 @@
   <p>
     Pre-checks are validation steps executed <strong>before</strong> a call is placed. They allow
     you to call an external API and conditionally skip the call based on the response. Pre-checks
-    are configured on the <code>CallExecutionConfig</code> via the <code>pre_checks</code> array.
+    are configured on the <a href="/docs/config/call-execution"><code>CallExecutionConfig</code></a> via the <code>pre_checks</code> array.
   </p>
 
   <h2 id="pre-check-config">PreCheckConfig</h2>

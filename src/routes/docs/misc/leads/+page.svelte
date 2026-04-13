@@ -8,10 +8,10 @@
 
 <div class="prose">
   <h1>Leads API</h1>
-  <p class="text-muted-foreground text-lg mb-8">Push leads for outbound calling, retrieve call details, cancel pending leads, and download recordings.</p>
+  <p class="text-muted-foreground text-lg mb-8">Push leads for <a href="/docs/telephony/overview">outbound calling</a>, retrieve call details, cancel pending leads, and download <a href="/docs/daily/recording">recordings</a>.</p>
 
   <h2 id="push-lead">Push Lead</h2>
-  <p>Submit a new lead for the voice agent to call. The lead enters the execution pipeline based on the template's call execution configuration.</p>
+  <p>Submit a new lead for the voice agent to call. The lead enters the execution pipeline based on the template's <a href="/docs/config/call-execution">call execution configuration</a>.</p>
 
   <ApiEndpoint method="POST" path="/push/lead/v2" />
 

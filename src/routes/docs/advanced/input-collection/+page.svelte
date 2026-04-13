@@ -11,7 +11,7 @@
 
   <h2 id="overview">Overview</h2>
   <p>
-    Input Collection is a node-level configuration that changes how user speech is handled.
+    Input Collection is a <a href="/docs/templates/flow-nodes">node-level configuration</a> that changes how user speech is handled.
     Instead of sending each speech segment to the LLM immediately, the system waits for the
     user to finish speaking across multiple segments before processing.
   </p>

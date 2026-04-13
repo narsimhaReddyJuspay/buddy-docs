@@ -147,7 +147,7 @@ if (response.ok) {
 }`} />
 
   <Callout type="tip" title="Webhook Notification">
-    <p>Configure a <a href="/docs/api/webhooks">webhook</a> to receive a notification when recording processing is complete. The webhook payload includes the <code>recording_url</code> so you can trigger downstream workflows automatically.</p>
+    <p>Configure a <a href="/docs/misc/webhooks">webhook</a> to receive a notification when recording processing is complete. The webhook payload includes the <code>recording_url</code> so you can trigger downstream workflows automatically.</p>
   </Callout>
 
   <!-- Troubleshooting -->
@@ -199,7 +199,7 @@ if (response.ok) {
         </div>
       </div>
     </a>
-    <a href="/docs/api/leads" class="card-integrate block no-underline">
+    <a href="/docs/misc/leads" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
         <span class="text-2xl">👤</span>
         <div>
@@ -208,7 +208,7 @@ if (response.ok) {
         </div>
       </div>
     </a>
-    <a href="/docs/api/webhooks" class="card-integrate block no-underline">
+    <a href="/docs/misc/webhooks" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
         <span class="text-2xl">🔔</span>
         <div>

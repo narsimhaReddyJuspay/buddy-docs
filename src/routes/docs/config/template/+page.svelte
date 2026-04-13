@@ -9,7 +9,7 @@
 
 <div class="prose">
   <h1>Template Configuration</h1>
-  <p class="text-muted-foreground text-lg mb-8">The <code>configurations</code> object on every template — controls STT, TTS, VAD, LLM, audio, interruptions, and more.</p>
+  <p class="text-muted-foreground text-lg mb-8">The <code>configurations</code> object on every template — controls <a href="/docs/config/stt">STT</a>, <a href="/docs/config/tts">TTS</a>, <a href="/docs/config/vad">VAD</a>, <a href="/docs/config/llm">LLM</a>, audio, interruptions, and more.</p>
 
   <h2 id="overview">Overview</h2>
   <p>

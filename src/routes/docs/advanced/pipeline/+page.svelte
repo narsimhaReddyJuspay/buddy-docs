@@ -8,12 +8,12 @@
 
 <div class="prose">
   <h1>Voice Pipeline</h1>
-  <p class="text-muted-foreground text-lg mb-8">End-to-end audio processing pipeline — from microphone input to speaker output.</p>
+  <p class="text-muted-foreground text-lg mb-8">End-to-end audio processing pipeline — from microphone input to speaker output. Built on <a href="https://github.com/pipecat-ai/pipecat" target="_blank" rel="noopener">Pipecat</a>. See <a href="/docs/architecture">Architecture</a> for where the pipeline fits in the broader system.</p>
 
   <h2 id="pipeline-overview">Pipeline Overview</h2>
   <p>
     Every voice call flows through a sequential pipeline of processors. Audio arrives from the
-    transport layer, gets transcribed, processed by the LLM, synthesized to speech, and sent
+    transport layer (<a href="/docs/daily/overview">Daily WebRTC</a> or <a href="/docs/telephony/overview">Telephony WebSocket</a>), gets transcribed, processed by the LLM, synthesized to speech, and sent
     back to the caller.
   </p>
 
@@ -45,11 +45,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Soniox</td><td><code>soniox</code></td><td>Default. Low-latency streaming with strong multilingual support.</td></tr>
-        <tr><td>Deepgram</td><td><code>deepgram</code></td><td>High accuracy, extensive language coverage.</td></tr>
-        <tr><td>Sarvam</td><td><code>sarvam</code></td><td>Optimized for Indian languages.</td></tr>
-        <tr><td>OpenAI</td><td><code>openai</code></td><td>Whisper-based, high accuracy for English.</td></tr>
-        <tr><td>Google</td><td><code>google</code></td><td>Google Cloud Speech-to-Text.</td></tr>
+        <tr><td><a href="https://soniox.com" target="_blank" rel="noopener">Soniox</a></td><td><code>soniox</code></td><td>Default. Low-latency streaming with strong multilingual support.</td></tr>
+        <tr><td><a href="https://deepgram.com" target="_blank" rel="noopener">Deepgram</a></td><td><code>deepgram</code></td><td>High accuracy, extensive language coverage.</td></tr>
+        <tr><td><a href="https://www.sarvam.ai" target="_blank" rel="noopener">Sarvam</a></td><td><code>sarvam</code></td><td>Optimized for Indian languages.</td></tr>
+        <tr><td><a href="https://openai.com/research/whisper" target="_blank" rel="noopener">OpenAI</a></td><td><code>openai</code></td><td>Whisper-based, high accuracy for English.</td></tr>
+        <tr><td><a href="https://cloud.google.com/speech-to-text" target="_blank" rel="noopener">Google</a></td><td><code>google</code></td><td>Google Cloud Speech-to-Text.</td></tr>
       </tbody>
     </table>
   </div>
@@ -61,8 +61,8 @@
   <h2 id="llm">LLM (Large Language Model)</h2>
   <p>
     The LLM processes the transcribed user input along with the conversation history and system
-    prompts to generate the assistant's response. Breeze Buddy uses <strong>Azure OpenAI</strong>
-    as the LLM provider.
+    prompts to generate the assistant's response. Breeze Buddy uses <a href="https://azure.microsoft.com/en-us/products/ai-services/openai-service" target="_blank" rel="noopener">Azure OpenAI</a>
+    as the LLM provider. Prompts are defined in your <a href="/docs/templates/flow-nodes">flow node</a> <code>task_messages</code>.
   </p>
 
   <div class="overflow-x-auto rounded-xl border border-border my-4">
@@ -76,7 +76,7 @@
       <tbody>
         <tr><td>Provider</td><td>Azure OpenAI</td></tr>
         <tr><td>Streaming</td><td>Yes — token-by-token streaming for low-latency TTS feeding</td></tr>
-        <tr><td>Function Calling</td><td>Supported — tools/functions defined in template flow nodes</td></tr>
+        <tr><td>Function Calling</td><td>Supported — tools/functions defined in <a href="/docs/templates/functions-hooks">template flow nodes</a></td></tr>
         <tr><td>Context Window</td><td>Managed automatically with conversation history truncation</td></tr>
       </tbody>
     </table>
@@ -101,10 +101,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>ElevenLabs</td><td><code>elevenlabs</code></td><td>Default. Natural-sounding voices with low latency.</td></tr>
-        <tr><td>Cartesia</td><td><code>cartesia</code></td><td>Ultra-low latency streaming TTS.</td></tr>
-        <tr><td>Sarvam</td><td><code>sarvam</code></td><td>Indian language voices.</td></tr>
-        <tr><td>Google</td><td><code>google</code></td><td>Google Cloud Text-to-Speech.</td></tr>
+        <tr><td><a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a></td><td><code>elevenlabs</code></td><td>Default. Natural-sounding voices with low latency.</td></tr>
+        <tr><td><a href="https://cartesia.ai" target="_blank" rel="noopener">Cartesia</a></td><td><code>cartesia</code></td><td>Ultra-low latency streaming TTS.</td></tr>
+        <tr><td><a href="https://www.sarvam.ai" target="_blank" rel="noopener">Sarvam</a></td><td><code>sarvam</code></td><td>Indian language voices.</td></tr>
+        <tr><td><a href="https://cloud.google.com/text-to-speech" target="_blank" rel="noopener">Google</a></td><td><code>google</code></td><td>Google Cloud Text-to-Speech.</td></tr>
       </tbody>
     </table>
   </div>
@@ -188,8 +188,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>Telephony</strong> (Twilio / Plivo / Exotel)</td><td>PSTN calls — outbound dialing and inbound call handling.</td></tr>
-        <tr><td><strong>Daily WebRTC</strong></td><td>Browser-based sessions, playground testing, and Daily SDK integrations.</td></tr>
+        <tr><td><strong><a href="/docs/telephony/overview">Telephony</a></strong> (Twilio / Plivo / Exotel)</td><td>PSTN calls — outbound dialing and inbound call handling.</td></tr>
+        <tr><td><strong><a href="/docs/daily/overview">Daily WebRTC</a></strong></td><td>Browser-based sessions, playground testing, and Daily SDK integrations.</td></tr>
       </tbody>
     </table>
   </div>

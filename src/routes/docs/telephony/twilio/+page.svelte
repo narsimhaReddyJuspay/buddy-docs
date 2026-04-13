@@ -33,7 +33,7 @@
     </div>
     <div class="step-list-item">
       <div class="step-list-number">4</div>
-      <div><strong>Register numbers</strong> — Add your Twilio numbers via the <a href="/docs/api/numbers">Numbers API</a> with <code>provider: "twilio"</code>.</div>
+      <div><strong>Register numbers</strong> — Add your Twilio numbers via the <a href="/docs/misc/numbers">Numbers API</a> with <code>provider: "twilio"</code>.</div>
     </div>
   </div>
 

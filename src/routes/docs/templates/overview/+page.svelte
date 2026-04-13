@@ -11,20 +11,20 @@
 <div class="prose">
   <h1>Templates Overview</h1>
   <p class="text-muted-foreground text-lg mb-8">
-    Customize entire conversation flows with JSON — no code deployment required. Templates are the top-level configuration objects that define every aspect of your voice agent's behavior.
+    Customize entire conversation flows with JSON — no code deployment required. Templates are the top-level configuration objects that define every aspect of your voice agent's behavior. New here? Start with the <a href="/docs/quickstart">Quick Start</a> guide.
   </p>
 
   <!-- ───────── What Are Templates ───────── -->
   <h2 id="what-are-templates">What Are Templates?</h2>
   <p>
-    A <strong>Template</strong> is the master blueprint for a voice agent conversation. It encapsulates the full conversation graph — nodes, transitions, functions, hooks, variables, and provider configuration — all as structured JSON. Every outbound or inbound call on Breeze Buddy is driven by a template.
+    A <strong>Template</strong> is the master blueprint for a voice agent conversation. It encapsulates the full conversation graph — <a href="/docs/templates/flow-nodes">nodes</a>, transitions, <a href="/docs/templates/functions-hooks">functions</a>, hooks, <a href="/docs/templates/variables">variables</a>, and provider configuration — all as structured JSON. Every outbound or inbound call on Breeze Buddy is driven by a template.
   </p>
   <p>
-    Templates let you customize <em>everything</em> about a conversation without writing or deploying code. Change how the agent greets callers, what data it collects, when it transfers to a human, and how it reports outcomes — all by editing JSON and pushing it through the API.
+    Templates let you customize <em>everything</em> about a conversation without writing or deploying code. Change how the agent greets callers, what data it collects, when it <a href="/docs/telephony/warm-transfer">transfers to a human</a>, and how it reports outcomes — all by editing JSON and pushing it through the <a href="/docs/templates/templates-api">Templates API</a>.
   </p>
 
   <Callout type="tip" title="No-Code Deployment">
-    <p>Templates are loaded fresh for every call. Update a template via the API and the next call uses the new version — no restart, no redeployment, no downtime. Iterate on conversation logic as fast as you can edit JSON.</p>
+    <p>Templates are loaded fresh for every call. Update a template via the <a href="/docs/templates/templates-api">API</a> and the next call uses the new version — no restart, no redeployment, no downtime. Iterate on conversation logic as fast as you can edit JSON.</p>
   </Callout>
 
   <FlowDiagram steps={["Author Template JSON", "POST to API", "Push Lead", "Cron Picks Up Lead", "Template Loaded at Call Time", "Conversation Executes"]} variant="customize" />
@@ -46,9 +46,9 @@
         <tr><td><code>flow</code></td><td><code>FlowModel</code></td><td>The conversation flow — nodes, global functions, and end-of-conversation callbacks</td></tr>
         <tr><td><code>expected_payload_schema</code></td><td><code>JSON Schema</code></td><td>Validates the lead payload before the call starts. Ensures required variables are present.</td></tr>
         <tr><td><code>expected_callback_response_schema</code></td><td><code>JSON Schema</code></td><td>Validates callback response payloads from external services</td></tr>
-        <tr><td><code>configurations</code></td><td><code>object</code></td><td>Template-level config overrides — STT, TTS, VAD, LLM, interruption, etc.</td></tr>
+        <tr><td><code>configurations</code></td><td><code>object</code></td><td>Template-level config overrides — <a href="/docs/config/stt">STT</a>, <a href="/docs/config/tts">TTS</a>, <a href="/docs/config/vad">VAD</a>, <a href="/docs/config/llm">LLM</a>, <a href="/docs/config/interruption">interruption</a>, etc.</td></tr>
         <tr><td><code>secrets</code></td><td><code>object</code></td><td>Template-level secrets for variable substitution (API keys, webhook URLs)</td></tr>
-        <tr><td><code>outbound_number_id</code></td><td><code>UUID | null</code></td><td>Default outbound number for calls on this template</td></tr>
+        <tr><td><code>outbound_number_id</code></td><td><code>UUID | null</code></td><td>Default outbound number for calls on this template (see <a href="/docs/misc/numbers">Numbers</a>)</td></tr>
         <tr><td><code>is_active</code></td><td><code>boolean</code></td><td>Whether the template is active and eligible for calls</td></tr>
       </tbody>
     </table>
@@ -279,7 +279,7 @@
 
   <!-- ───────── CRUD Operations ───────── -->
   <h2 id="crud-operations">Managing Templates via API</h2>
-  <p>Templates are stored in PostgreSQL as JSONB and managed through standard CRUD endpoints:</p>
+  <p>Templates are stored in <a href="https://www.postgresql.org" target="_blank" rel="noopener">PostgreSQL</a> as JSONB and managed through standard CRUD endpoints. All endpoints require <a href="/docs/auth/overview">authentication</a>. See the <a href="/docs/templates/templates-api">Templates API</a> page for full request/response details.</p>
 
   <ApiEndpoint method="POST" path="/agent/voice/breeze-buddy/templates" description="Create a new template. Request body is the full TemplateModel JSON." />
   <ApiEndpoint method="GET" path="/agent/voice/breeze-buddy/templates/{'{template_id}'}" description="Retrieve a template by ID." />

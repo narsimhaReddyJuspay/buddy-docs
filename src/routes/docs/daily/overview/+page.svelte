@@ -16,20 +16,20 @@
   </p>
 
   <Callout type="info" title="Prerequisites">
-    <p>Before integrating, ensure you have a <strong>Daily.co API key</strong> configured in your environment, a deployed Breeze Buddy backend, and leads pushed with <code>execution_mode</code> set to <code>DAILY</code> or <code>DAILY_TEST</code>.</p>
+    <p>Before integrating, ensure you have a <a href="https://daily.co" target="_blank" rel="noopener">Daily.co</a> API key configured in your environment, a deployed Breeze Buddy backend with a valid <a href="/docs/auth/overview">API token</a>, and leads pushed with <code>execution_mode</code> set to <code>DAILY</code> or <code>DAILY_TEST</code> via the <a href="/docs/misc/leads">Leads API</a>.</p>
   </Callout>
 
   <!-- Connection Flow -->
   <h2 id="connection-flow">Connection Flow</h2>
   <p>
-    Daily.co provides the WebRTC transport layer that streams audio directly between the user's browser (or mobile app) and Breeze Buddy's Pipecat voice pipeline — no phone network required.
+    <a href="https://daily.co" target="_blank" rel="noopener">Daily.co</a> provides the WebRTC transport layer that streams audio directly between the user's browser (or mobile app) and Breeze Buddy's <a href="/docs/advanced/pipeline">Pipecat voice pipeline</a> — no phone network required. For PSTN-based calls, see <a href="/docs/telephony/overview">Telephony Integration</a> instead.
   </p>
 
   <FlowDiagram steps={["Push Lead (DAILY mode)", "POST /daily/connect", "Create Daily Room", "Generate Tokens", "Spawn Bot Process", "WebRTC Audio Session"]} variant="integrate" />
 
   <ol class="step-list not-prose mt-8 mb-8 text-muted-foreground">
     <li>
-      <strong class="text-foreground">Push a lead</strong> via the Leads API with <code>execution_mode: "DAILY"</code> or <code>"DAILY_TEST"</code>. The lead enters <code>BACKLOG</code> status.
+      <strong class="text-foreground">Push a lead</strong> via the <a href="/docs/misc/leads">Leads API</a> with <code>execution_mode: "DAILY"</code> or <code>"DAILY_TEST"</code>. The lead enters <code>BACKLOG</code> status.
     </li>
     <li>
       <strong class="text-foreground">Call the connect endpoint</strong> with the lead's ID. The backend validates the lead exists and is in <code>BACKLOG</code> state.
@@ -41,7 +41,7 @@
       <strong class="text-foreground">Token generation</strong> — separate user and bot tokens are generated with appropriate permissions. The room name is stored as <code>call_id</code> on the lead.
     </li>
     <li>
-      <strong class="text-foreground">Bot process spawned</strong> — the Pipecat pipeline is started in the pre-warmed process pool, connecting to the room with the bot token.
+      <strong class="text-foreground">Bot process spawned</strong> — the <a href="/docs/advanced/pipeline">Pipecat pipeline</a> is started in the pre-warmed process pool, connecting to the room with the bot token. See <a href="/docs/architecture">Architecture</a> for details on the process model.
     </li>
     <li>
       <strong class="text-foreground">Client joins</strong> — your frontend uses the returned <code>room_url</code> and <code>token</code> to join the room. Audio flows bidirectionally via WebRTC.
@@ -180,7 +180,7 @@ const { room_url, token, session_id } = await response.json();
         </div>
       </div>
     </a>
-    <a href="/docs/api/leads" class="card-integrate block no-underline">
+    <a href="/docs/misc/leads" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
         <span class="text-2xl">👤</span>
         <div>

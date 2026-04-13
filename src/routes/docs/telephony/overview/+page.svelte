@@ -11,7 +11,7 @@
 <div class="prose">
   <h1>Telephony Integration</h1>
   <p class="text-muted-foreground text-base mb-6">
-    Connect Breeze Buddy to the PSTN via Twilio, Plivo, or Exotel — enabling outbound campaigns and inbound call handling through real-time WebSocket audio streaming.
+    Connect Breeze Buddy to the PSTN via <a href="https://www.twilio.com" target="_blank" rel="noopener">Twilio</a>, <a href="https://www.plivo.com" target="_blank" rel="noopener">Plivo</a>, or <a href="https://exotel.com" target="_blank" rel="noopener">Exotel</a> — enabling outbound campaigns and inbound call handling through real-time WebSocket audio streaming. For browser-based sessions without PSTN, see <a href="/docs/daily/overview">Daily WebRTC</a>.
   </p>
 
   <!-- ───────── How It Works ───────── -->
@@ -19,7 +19,7 @@
   <p>
     Every telephony call follows the same core pattern: the provider places or receives a phone call and bridges it to a
     <strong>bidirectional WebSocket</strong> connection. Audio frames stream in real-time between the provider and the
-    Pipecat voice pipeline, which runs STT → LLM → TTS on each turn.
+    Pipecat <a href="/docs/advanced/pipeline">voice pipeline</a>, which runs <a href="/docs/config/stt">STT</a> → <a href="/docs/config/llm">LLM</a> → <a href="/docs/config/tts">TTS</a> on each turn.
   </p>
 
   <FlowDiagram steps={["Provider API", "PSTN Call", "Customer Answers", "WebSocket Bridge", "Voice Pipeline", "Callbacks"]} variant="integrate" />
@@ -27,31 +27,31 @@
   <p>
     The WebSocket endpoint (<code>/ws/&#123;provider&#125;</code>) accepts raw audio frames at <strong>8 kHz</strong> and returns
     synthesized speech in the same format. All call metadata — lead ID, template ID, outbound number — is passed as
-    query parameters or stream metadata so the pipeline can load the correct conversation template.
+    query parameters or stream metadata so the pipeline can load the correct <a href="/docs/templates/overview">conversation template</a>.
   </p>
 
   <Callout type="info" title="Pod Isolation">
-    <p>In production, each call runs on a dedicated pod allocated by the Smart Router. This guarantees full CPU and memory isolation for real-time audio processing — no noisy-neighbor effects.</p>
+    <p>In production, each call runs on a dedicated pod allocated by the Smart Router. See <a href="/docs/architecture">Architecture</a> for details on pod isolation and the process model.</p>
   </Callout>
 
   <!-- ───────── Outbound Flow ───────── -->
   <h2 id="outbound-flow">Outbound Call Flow</h2>
-  <p>Outbound calls are driven by a background cron that picks up leads in <code>BACKLOG</code> status within the configured calling window.</p>
+  <p>Outbound calls are driven by a background cron that picks up leads in <code>BACKLOG</code> status within the <a href="/docs/config/call-execution">configured calling window</a>.</p>
 
   <FlowDiagram steps={["Cron Pickup", "Reserve Number", "Provider API Call", "Customer Answers", "WebSocket Audio", "Voice Pipeline", "Status Callback"]} variant="integrate" />
 
   <div class="step-list">
     <div class="step-list-item">
       <div class="step-list-number">1</div>
-      <div><strong>Cron pickup</strong> — The scheduler selects a <code>BACKLOG</code> lead whose calling hours and timezone match the current time.</div>
+      <div><strong>Cron pickup</strong> — The scheduler selects a <code>BACKLOG</code> lead whose <a href="/docs/config/call-execution">calling hours</a> and timezone match the current time.</div>
     </div>
     <div class="step-list-item">
       <div class="step-list-number">2</div>
-      <div><strong>Reserve outbound number</strong> — An available number is locked for the duration of the call to prevent double-dialing.</div>
+      <div><strong>Reserve outbound number</strong> — An available number is locked for the duration of the call to prevent double-dialing. See <a href="/docs/misc/numbers">Numbers &amp; Merchants</a>.</div>
     </div>
     <div class="step-list-item">
       <div class="step-list-number">3</div>
-      <div><strong>Provider API call</strong> — Twilio <code>calls.create()</code>, Plivo <code>calls.create()</code>, or Exotel applet trigger initiates a PSTN call to the customer.</div>
+      <div><strong>Provider API call</strong> — <a href="/docs/telephony/twilio">Twilio</a> <code>calls.create()</code>, <a href="/docs/telephony/plivo">Plivo</a> <code>calls.create()</code>, or <a href="/docs/telephony/exotel">Exotel</a> applet trigger initiates a PSTN call to the customer.</div>
     </div>
     <div class="step-list-item">
       <div class="step-list-number">4</div>
@@ -59,17 +59,17 @@
     </div>
     <div class="step-list-item">
       <div class="step-list-number">5</div>
-      <div><strong>Voice pipeline</strong> — Pipecat processes audio in real-time: STT → LLM → TTS, following the conversation template.</div>
+      <div><strong>Voice pipeline</strong> — <a href="https://github.com/pipecat-ai/pipecat" target="_blank" rel="noopener">Pipecat</a> processes audio in real-time: <a href="/docs/config/stt">STT</a> → <a href="/docs/config/llm">LLM</a> → <a href="/docs/config/tts">TTS</a>, following the <a href="/docs/templates/overview">conversation template</a>.</div>
     </div>
     <div class="step-list-item">
       <div class="step-list-number">6</div>
-      <div><strong>Callbacks</strong> — On call end the provider sends status and recording callbacks. The lead is updated to <code>FINISHED</code> or <code>RETRY</code>.</div>
+      <div><strong>Callbacks</strong> — On call end the provider sends status and recording callbacks. The lead is updated to <code>FINISHED</code> or <code>RETRY</code>. Configure <a href="/docs/misc/webhooks">webhooks</a> for real-time notifications.</div>
     </div>
   </div>
 
   <!-- ───────── Inbound Flow ───────── -->
   <h2 id="inbound-flow">Inbound Call Flow</h2>
-  <p>When a customer dials one of your outbound numbers, the telephony provider hits your answer webhook. The server resolves which template(s) are mapped to that number and routes accordingly.</p>
+  <p>When a customer dials one of your outbound numbers, the telephony provider hits your answer webhook. The server resolves which <a href="/docs/templates/overview">template(s)</a> are mapped to that number and routes accordingly. See <a href="/docs/telephony/inbound">Inbound Calls</a> and <a href="/docs/advanced/ivr">IVR Routing</a> for details.</p>
 
   <FlowDiagram steps={["Customer Dials", "Provider Webhook", "Resolve Templates", "Single / IVR Routing", "WebSocket Connection", "Voice Pipeline"]} variant="integrate" />
 
@@ -175,7 +175,7 @@
   </div>
 
   <Callout type="tip" title="AIC Noise Enhancement">
-    <p>When enabled, the AIC noise enhancement filter runs on inbound audio <em>before</em> it reaches the STT engine, significantly improving transcription accuracy in noisy phone environments.</p>
+    <p>When enabled, the AIC noise enhancement filter runs on inbound audio <em>before</em> it reaches the <a href="/docs/config/stt">STT engine</a>, significantly improving transcription accuracy in noisy phone environments. See <a href="/docs/config/audio">Audio Configuration</a> for setup.</p>
   </Callout>
 
   <!-- ───────── Call Lifecycle ───────── -->
@@ -209,7 +209,7 @@
     </div>
     <div class="step-list-item">
       <div class="step-list-number">3</div>
-      <div><strong>Provision outbound numbers</strong> — Purchase numbers and register them via the <a href="/docs/api/numbers">Numbers API</a> with the correct provider tag.</div>
+      <div><strong>Provision outbound numbers</strong> — Purchase numbers and register them via the <a href="/docs/misc/numbers">Numbers &amp; Merchants API</a> with the correct provider tag.</div>
     </div>
     <div class="step-list-item">
       <div class="step-list-number">4</div>
@@ -217,11 +217,11 @@
     </div>
     <div class="step-list-item">
       <div class="step-list-number">5</div>
-      <div><strong>Create a template</strong> — Define a conversation flow with nodes, functions, and hooks via the <a href="/docs/api/templates">Templates API</a>.</div>
+      <div><strong>Create a template</strong> — Define a conversation flow with nodes, functions, and hooks via the <a href="/docs/templates/templates-api">Templates API</a>.</div>
     </div>
     <div class="step-list-item">
       <div class="step-list-number">6</div>
-      <div><strong>Push leads</strong> — Send leads via the <a href="/docs/api/leads">Leads API</a> with <code>status: "BACKLOG"</code> to start the outbound campaign.</div>
+      <div><strong>Push leads</strong> — Send leads via the <a href="/docs/misc/leads">Leads API</a> with <code>status: "BACKLOG"</code> to start the outbound campaign.</div>
     </div>
   </div>
 

@@ -7,11 +7,11 @@
 
 <div class="prose">
   <h1>Observability</h1>
-  <p class="text-muted-foreground text-lg mb-8">Langfuse tracing, OpenTelemetry propagation, contextual logging, Slack alerts, and auto-evaluation.</p>
+  <p class="text-muted-foreground text-lg mb-8"><a href="https://langfuse.com" target="_blank" rel="noopener">Langfuse</a> tracing, <a href="https://opentelemetry.io" target="_blank" rel="noopener">OpenTelemetry</a> propagation, contextual logging, Slack alerts, and auto-evaluation.</p>
 
   <h2 id="overview">Overview</h2>
   <p>
-    Breeze Buddy provides comprehensive observability across the entire voice pipeline — from
+    Breeze Buddy provides comprehensive observability across the entire <a href="/docs/advanced/pipeline">voice pipeline</a> — from
     LLM call tracing to structured logging with correlation IDs. This enables debugging,
     performance optimization, cost tracking, and automated quality monitoring.
   </p>

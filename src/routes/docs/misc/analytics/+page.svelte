@@ -8,7 +8,7 @@
 
 <div class="prose">
   <h1>Analytics</h1>
-  <p class="text-muted-foreground text-lg mb-8">Flexible analytics queries for aggregating call data across templates, merchants, and time ranges.</p>
+  <p class="text-muted-foreground text-lg mb-8">Flexible analytics queries for aggregating call data across <a href="/docs/templates/overview">templates</a>, merchants, and time ranges.</p>
 
   <h2 id="overview">Overview</h2>
   <p>

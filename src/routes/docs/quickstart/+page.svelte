@@ -10,8 +10,16 @@
   <h1>Quick Start</h1>
   <p class="text-muted-foreground text-lg mb-8">Get a voice agent running in under 5 minutes.</p>
 
-  <h2 id="step-1-create-template">Step 1: Create a Template</h2>
-  <p>Create a simple greeting template that confirms a user's appointment.</p>
+  <Callout type="info" title="Prerequisites">
+    <p>You'll need an <a href="/docs/auth/overview">authenticated API token</a> and a deployed Breeze Buddy backend. See <a href="/docs/architecture">Architecture</a> for an overview of how the platform fits together.</p>
+  </Callout>
+
+  <!-- ───────── Step 1 ───────── -->
+  <h2 id="step-1-create-template">Step 1 — Create a Template</h2>
+  <p>
+    A <a href="/docs/templates/overview">template</a> is the JSON blueprint that defines your agent's conversation flow — nodes, transitions, functions, hooks, and provider config.
+    Here's a minimal appointment-reminder template (key fields only — see <a href="/docs/templates/overview">Templates Overview</a> for the full schema):
+  </p>
 
   <ApiEndpoint method="POST" path="/agent/voice/breeze-buddy/templates" />
 
@@ -23,99 +31,45 @@
       {
         "node_name": "greeting",
         "task_messages": [
-          {
-            "role": "system",
-            "content": "You are a friendly appointment reminder agent. Greet the customer by name and confirm their upcoming appointment on {appointment_date} at {appointment_time}. If they confirm, thank them. If they want to reschedule, collect a new preferred date."
-          }
+          { "role": "system", "content": "Greet the customer and confirm their appointment on {appointment_date} at {appointment_time}." }
         ],
-        "role_messages": [],
-        "pre_actions": [],
-        "post_actions": [],
         "functions": [
-          {
-            "name": "appointment_confirmed",
-            "description": "Customer confirmed the appointment",
-            "properties": {},
-            "required": [],
-            "transition_to": "farewell",
-            "hooks": [
-              {
-                "name": "update_outcome_in_database",
-                "expected_fields": {
-                  "outcome": { "source": "static", "value": "confirmed" }
-                }
-              }
-            ]
-          },
-          {
-            "name": "appointment_rescheduled",
-            "description": "Customer wants to reschedule",
-            "properties": {
-              "new_date": { "type": "string", "description": "New preferred date" }
-            },
-            "required": ["new_date"],
-            "transition_to": "farewell",
-            "hooks": [
-              {
-                "name": "update_outcome_in_database",
-                "expected_fields": {
-                  "outcome": { "source": "static", "value": "rescheduled" },
-                  "new_date": { "source": "llm" }
-                }
-              }
-            ]
-          }
+          { "name": "appointment_confirmed", "transition_to": "farewell" },
+          { "name": "appointment_rescheduled", "transition_to": "farewell",
+            "properties": { "new_date": { "type": "string" } } }
         ]
       },
       {
         "node_name": "farewell",
         "task_messages": [
-          {
-            "role": "system",
-            "content": "Thank the customer and say goodbye politely."
-          }
+          { "role": "system", "content": "Thank the customer and say goodbye." }
         ],
-        "role_messages": [],
-        "pre_actions": [],
-        "post_actions": [],
         "functions": [
-          {
-            "name": "end_call",
-            "description": "Conversation is complete",
-            "properties": {},
-            "required": [],
-            "transition_to": null,
-            "hooks": []
-          }
+          { "name": "end_call", "transition_to": null }
         ]
       }
-    ],
-    "global_functions": [],
-    "end_conversation_callbacks": []
+    ]
   },
   "configurations": {
     "initial_greeting": "Hi {customer_name}, this is Breeze calling about your appointment.",
     "tts_voice_name": "rhea",
-    "stt_configuration": {
-      "provider": "deepgram",
-      "language": "en",
-      "turn_detection": "smart_turn"
-    }
-  },
-  "expected_payload_schema": {
-    "type": "object",
-    "properties": {
-      "customer_name": { "type": "string" },
-      "customer_phone": { "type": "string" },
-      "appointment_date": { "type": "string" },
-      "appointment_time": { "type": "string" }
-    },
-    "required": ["customer_name", "customer_phone", "appointment_date", "appointment_time"]
+    "stt_configuration": { "provider": "deepgram", "language": "en" }
   }
 }`} />
 
-  <h2 id="step-2-configure-execution">Step 2: Configure Call Execution</h2>
-  <p>Set up calling hours, retry logic, and telephony provider.</p>
+  <p class="text-sm text-muted-foreground">
+    Nodes define conversation stages; functions define exit transitions. Learn more about
+    <a href="/docs/templates/nodes">flow nodes</a>,
+    <a href="/docs/templates/functions">functions &amp; hooks</a>, and
+    <a href="/docs/templates/variables">variables</a>.
+  </p>
+
+  <!-- ───────── Step 2 ───────── -->
+  <h2 id="step-2-configure-execution">Step 2 — Configure Call Execution</h2>
+  <p>
+    A <a href="/docs/config/template-config">configuration</a> binds a template to a telephony provider, calling window, and retry policy.
+    See <a href="/docs/config/configurations-api">Configurations API</a> for all available fields.
+  </p>
 
   <ApiEndpoint method="POST" path="/agent/voice/breeze-buddy/configurations" />
 
@@ -127,13 +81,20 @@
   "call_end_time": "18:00:00",
   "max_retry": 2,
   "retry_offset": 3600,
-  "initial_offset": 0,
-  "enable_calling": true,
-  "enable_inbound": false,
-  "enforce_blacklist": true
+  "enable_calling": true
 }`} />
 
-  <h2 id="step-3-push-lead">Step 3: Push a Lead</h2>
+  <p class="text-sm text-muted-foreground">
+    Supported providers: <a href="/docs/telephony/twilio">Twilio</a>, <a href="/docs/telephony/plivo">Plivo</a>, <a href="/docs/telephony/exotel">Exotel</a>.
+    For inbound call setup see <a href="/docs/telephony/inbound">Inbound Calls</a>.
+  </p>
+
+  <!-- ───────── Step 3 ───────── -->
+  <h2 id="step-3-push-lead">Step 3 — Push a Lead</h2>
+  <p>
+    A lead represents a single call to be made. Push it with the template name and a payload containing the dynamic variables referenced in your template.
+    See <a href="/docs/misc/leads">Leads API</a> for bulk operations and status tracking.
+  </p>
 
   <ApiEndpoint method="POST" path="/agent/voice/breeze-buddy/push/lead/v2" />
 
@@ -150,14 +111,42 @@
   }
 }`} />
 
-  <Callout type="tip" title="Test with Daily">
-    <p>Set <code>execution_mode</code> to <code>"DAILY_TEST"</code> to test in the browser instead of making a real phone call. Then connect via the <code>/daily/connect</code> endpoint.</p>
+  <Callout type="tip" title="Test without a phone call">
+    <p>Set <code>execution_mode</code> to <code>"DAILY_TEST"</code> to test in the browser via <a href="/docs/daily/overview">Daily WebRTC</a>. Connect using the <a href="/docs/daily/connect-api"><code>/daily/connect</code></a> endpoint — no telephony provider required.</p>
   </Callout>
 
-  <h2 id="step-4-monitor">Step 4: Monitor</h2>
+  <!-- ───────── Step 4 ───────── -->
+  <h2 id="step-4-monitor">Step 4 — Monitor</h2>
   <p>Check the lead status and retrieve the recording after the call:</p>
 
   <ApiEndpoint method="GET" path="/agent/voice/breeze-buddy/leads/{'{lead_id}'}" />
 
-  <p>The response includes status, outcome, transcription, call timing, and Langfuse scores.</p>
+  <p>
+    The response includes status, outcome, transcription, call timing, and
+    <a href="https://langfuse.com" target="_blank" rel="noopener">Langfuse</a> scores.
+    Set up <a href="/docs/misc/webhooks">webhooks</a> for real-time notifications, or query the
+    <a href="/docs/misc/analytics">Analytics API</a> for aggregate reporting.
+    For full observability see <a href="/docs/advanced/observability">Observability &amp; Tracing</a>.
+  </p>
+
+  <!-- ───────── Next Steps ───────── -->
+  <h2 id="next-steps">Next Steps</h2>
+  <div class="grid sm:grid-cols-2 gap-4 not-prose mt-4">
+    <a href="/docs/templates/overview" class="group rounded-xl border border-border p-5 hover:border-primary/40 transition-colors">
+      <h3 class="text-base font-semibold text-foreground group-hover:text-primary transition-colors">Template System</h3>
+      <p class="text-sm text-muted-foreground mt-1">Deep dive into nodes, functions, hooks, and variables.</p>
+    </a>
+    <a href="/docs/telephony/overview" class="group rounded-xl border border-border p-5 hover:border-primary/40 transition-colors">
+      <h3 class="text-base font-semibold text-foreground group-hover:text-primary transition-colors">Telephony</h3>
+      <p class="text-sm text-muted-foreground mt-1">Twilio, Plivo, Exotel — outbound &amp; inbound call flows.</p>
+    </a>
+    <a href="/docs/daily/overview" class="group rounded-xl border border-border p-5 hover:border-primary/40 transition-colors">
+      <h3 class="text-base font-semibold text-foreground group-hover:text-primary transition-colors">Daily WebRTC</h3>
+      <p class="text-sm text-muted-foreground mt-1">Browser-based voice sessions with sub-second latency.</p>
+    </a>
+    <a href="/docs/config/template-config" class="group rounded-xl border border-border p-5 hover:border-primary/40 transition-colors">
+      <h3 class="text-base font-semibold text-foreground group-hover:text-primary transition-colors">Configuration</h3>
+      <p class="text-sm text-muted-foreground mt-1">STT, TTS, LLM, VAD, retry, and calling window settings.</p>
+    </a>
+  </div>
 </div>

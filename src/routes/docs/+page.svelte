@@ -1,7 +1,5 @@
 <script lang="ts">
-  import CodeBlock from '$lib/components/CodeBlock.svelte';
   import Callout from '$lib/components/Callout.svelte';
-  import FlowDiagram from '$lib/components/FlowDiagram.svelte';
 </script>
 
 <svelte:head>
@@ -32,13 +30,13 @@
   <p>
     Breeze Buddy is a fully managed voice AI backend that handles the entire lifecycle of a voice conversation —
     from receiving a lead, placing or connecting a call, running a real-time speech pipeline (STT → LLM → TTS),
-    navigating a template-driven conversation flow, to delivering structured outcomes via webhooks.
+    navigating a <a href="/docs/templates/overview">template-driven conversation flow</a>, to delivering structured outcomes via <a href="/docs/misc/webhooks">webhooks</a>.
   </p>
 
   <p>
     Think of it as <strong>a programmable voice agent as a service</strong>. You define <em>what</em> the agent should
-    say and do through JSON templates, and Breeze Buddy handles the <em>how</em> — infrastructure, real-time audio
-    processing, telephony integration, retry logic, analytics, and observability.
+    say and do through <a href="/docs/templates/flow-nodes">JSON templates</a>, and Breeze Buddy handles the <em>how</em> — infrastructure, real-time audio
+    processing, telephony integration, retry logic, <a href="/docs/misc/analytics">analytics</a>, and <a href="/docs/advanced/observability">observability</a>.
   </p>
 
   <div class="my-6 not-prose grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -49,7 +47,7 @@
         </div>
         <span class="text-sm font-semibold text-foreground">No-Code Agent Logic</span>
       </div>
-      <p class="text-xs text-muted-foreground leading-relaxed">Define conversation flows, prompts, and transitions in JSON templates. Deploy changes instantly without code releases.</p>
+      <p class="text-xs text-muted-foreground leading-relaxed">Define conversation flows, prompts, and transitions in <a href="/docs/templates/overview" class="text-muted-foreground underline">JSON templates</a>. Deploy changes instantly without code releases.</p>
     </div>
     <div class="rounded-xl border border-border bg-card p-4">
       <div class="flex items-center gap-2 mb-2">
@@ -58,7 +56,7 @@
         </div>
         <span class="text-sm font-semibold text-foreground">Dual Transport</span>
       </div>
-      <p class="text-xs text-muted-foreground leading-relaxed">Use Daily WebRTC for browser-based voice or Telephony (Twilio, Plivo, Exotel) for phone calls — same template, same API.</p>
+      <p class="text-xs text-muted-foreground leading-relaxed">Use <a href="/docs/daily/overview" class="text-muted-foreground underline">Daily WebRTC</a> for browser-based voice or <a href="/docs/telephony/overview" class="text-muted-foreground underline">Telephony</a> (Twilio, Plivo, Exotel) for phone calls — same template, same API.</p>
     </div>
     <div class="rounded-xl border border-border bg-card p-4">
       <div class="flex items-center gap-2 mb-2">
@@ -67,7 +65,7 @@
         </div>
         <span class="text-sm font-semibold text-foreground">Enterprise Ready</span>
       </div>
-      <p class="text-xs text-muted-foreground leading-relaxed">Multi-tenant RBAC, rate limiting, number blacklists, retry logic, analytics, Langfuse observability — all built in.</p>
+      <p class="text-xs text-muted-foreground leading-relaxed">Multi-tenant <a href="/docs/auth/rbac" class="text-muted-foreground underline">RBAC</a>, rate limiting, blacklists, retry logic, <a href="/docs/misc/analytics" class="text-muted-foreground underline">analytics</a>, <a href="/docs/advanced/observability" class="text-muted-foreground underline">Langfuse observability</a> — all built in.</p>
     </div>
   </div>
 
@@ -82,14 +80,14 @@
         <tr><th>Capability</th><th>Typical Voice AI</th><th>Breeze Buddy</th></tr>
       </thead>
       <tbody>
-        <tr><td>Agent logic</td><td>Custom Python/Node code</td><td><strong>JSON templates</strong> — no deployment needed</td></tr>
-        <tr><td>Conversation flow</td><td>Hard-coded state machines</td><td><strong>Graph-based flow nodes</strong> with LLM-driven transitions</td></tr>
-        <tr><td>Voice pipeline</td><td>Stitch together STT + LLM + TTS</td><td><strong>Managed pipeline</strong> — Pipecat-AI under the hood</td></tr>
-        <tr><td>Telephony</td><td>Write Twilio/Plivo integrations</td><td><strong>Built-in</strong> — Twilio, Plivo, Exotel with auto-retry</td></tr>
-        <tr><td>Browser voice</td><td>Build custom WebRTC client</td><td><strong>Daily SDK + RTVI</strong> — 10 lines of code</td></tr>
-        <tr><td>Provider switching</td><td>Rewrite integration layer</td><td><strong>Per-template config</strong> — swap STT/TTS/LLM in JSON</td></tr>
-        <tr><td>Multi-tenancy</td><td>Build yourself</td><td><strong>Native RBAC</strong> — admin &gt; reseller &gt; merchant &gt; user</td></tr>
-        <tr><td>Analytics</td><td>Custom dashboards</td><td><strong>Built-in query API</strong> — sentiment, outcomes, funnels</td></tr>
+        <tr><td>Agent logic</td><td>Custom Python/Node code</td><td><strong><a href="/docs/templates/overview">JSON templates</a></strong> — no deployment needed</td></tr>
+        <tr><td>Conversation flow</td><td>Hard-coded state machines</td><td><strong><a href="/docs/templates/flow-nodes">Graph-based flow nodes</a></strong> with LLM-driven transitions</td></tr>
+        <tr><td>Voice pipeline</td><td>Stitch together STT + LLM + TTS</td><td><strong><a href="/docs/advanced/pipeline">Managed pipeline</a></strong> — <a href="https://github.com/pipecat-ai/pipecat" target="_blank" rel="noopener">Pipecat-AI</a> under the hood</td></tr>
+        <tr><td>Telephony</td><td>Write Twilio/Plivo integrations</td><td><strong><a href="/docs/telephony/overview">Built-in</a></strong> — Twilio, Plivo, Exotel with auto-retry</td></tr>
+        <tr><td>Browser voice</td><td>Build custom WebRTC client</td><td><strong><a href="/docs/daily/web-sdk">Daily SDK + RTVI</a></strong> — 10 lines of code</td></tr>
+        <tr><td>Provider switching</td><td>Rewrite integration layer</td><td><strong><a href="/docs/config/template">Per-template config</a></strong> — swap STT/TTS/LLM in JSON</td></tr>
+        <tr><td>Multi-tenancy</td><td>Build yourself</td><td><strong><a href="/docs/auth/rbac">Native RBAC</a></strong> — admin &gt; reseller &gt; merchant &gt; user</td></tr>
+        <tr><td>Analytics</td><td>Custom dashboards</td><td><strong><a href="/docs/misc/analytics">Built-in query API</a></strong> — sentiment, outcomes, funnels</td></tr>
       </tbody>
     </table>
   </div>
@@ -105,19 +103,19 @@
       </li>
       <li class="flex items-start gap-2 text-sm text-muted-foreground">
         <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-        <span><strong class="text-foreground">Lead qualification</strong> — automated voice screening with structured data collection</span>
+        <span><strong class="text-foreground">Lead qualification</strong> — automated voice screening with <a href="/docs/advanced/input-collection" class="text-muted-foreground underline">structured data collection</a></span>
       </li>
       <li class="flex items-start gap-2 text-sm text-muted-foreground">
         <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-        <span><strong class="text-foreground">Customer support IVR</strong> — inbound call handling with intent routing and warm transfer to humans</span>
+        <span><strong class="text-foreground">Customer support IVR</strong> — <a href="/docs/telephony/inbound" class="text-muted-foreground underline">inbound call handling</a> with <a href="/docs/advanced/ivr" class="text-muted-foreground underline">intent routing</a> and <a href="/docs/telephony/warm-transfer" class="text-muted-foreground underline">warm transfer</a> to humans</span>
       </li>
       <li class="flex items-start gap-2 text-sm text-muted-foreground">
         <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-        <span><strong class="text-foreground">Survey & feedback collection</strong> — multi-question voice surveys with sentiment analysis</span>
+        <span><strong class="text-foreground">Survey & feedback collection</strong> — multi-question voice surveys with <a href="/docs/misc/analytics" class="text-muted-foreground underline">sentiment analysis</a></span>
       </li>
       <li class="flex items-start gap-2 text-sm text-muted-foreground">
         <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-        <span><strong class="text-foreground">In-app voice assistants</strong> — embed real-time voice AI in web/mobile apps via Daily WebRTC</span>
+        <span><strong class="text-foreground">In-app voice assistants</strong> — embed real-time voice AI in web/mobile apps via <a href="/docs/daily/overview" class="text-muted-foreground underline">Daily WebRTC</a></span>
       </li>
     </ul>
   </div>
@@ -125,7 +123,7 @@
   <!-- Integration paths — primary CTA cards -->
   <h2 id="choose-integration">Choose Your Integration</h2>
 
-  <p>Breeze Buddy supports two transport modes. Both use the same template system and API — the only difference is how audio reaches the user.</p>
+  <p>Breeze Buddy supports two transport modes. Both use the same <a href="/docs/templates/overview">template system</a> and <a href="/docs/misc/leads">Leads API</a> — the only difference is how audio reaches the user. See the <a href="/docs/architecture">Architecture</a> page for the full request lifecycle.</p>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 not-prose">
     <a href="/docs/daily/overview" class="doc-card group">
@@ -148,7 +146,7 @@
       </div>
       <div>
         <span class="text-base font-semibold text-foreground">Telephony</span>
-        <p class="text-sm text-muted-foreground mt-1.5 leading-relaxed">Place and receive phone calls through Twilio, Plivo, or Exotel. Outbound campaigns, inbound routing, and warm transfer to human agents.</p>
+        <p class="text-sm text-muted-foreground mt-1.5 leading-relaxed">Place and receive phone calls through Twilio, Plivo, or Exotel. Outbound campaigns, inbound routing, and warm transfer.</p>
       </div>
       <div class="flex items-center gap-2 mt-auto pt-2">
         <span class="text-xs font-medium" style="color: var(--buddy-orange-light);">Configure &#8594;</span>
@@ -157,149 +155,34 @@
     </a>
   </div>
 
-  <!-- How integration works -->
+  <!-- How it works — brief summary with link to arch -->
   <h2 id="how-it-works">How It Works</h2>
 
-  <p>
-    The core workflow is simple: push a lead via the API with a template, and Breeze Buddy handles everything from there.
-  </p>
+  <p>The core workflow is simple:</p>
 
-  <!-- Vertical flow diagram -->
-  <div class="my-8 not-prose">
-    <div class="flex flex-col items-center">
-      <!-- Step 1 -->
-      <div class="flow-node flow-node-accent">
-        <div class="flow-node-icon">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-        </div>
-        <div>
-          <span class="flow-node-title">Push Lead via API</span>
-          <span class="flow-node-desc">POST /push/lead/v2 with template & payload</span>
-        </div>
-      </div>
-      <div class="flow-line"></div>
-
-      <!-- Step 2 -->
-      <div class="flow-node">
-        <div class="flow-node-icon">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <div>
-          <span class="flow-node-title">Validate Template & Payload</span>
-          <span class="flow-node-desc">Schema match, number blacklist, template existence</span>
-        </div>
-      </div>
-      <div class="flow-line"></div>
-
-      <!-- Branch -->
-      <div class="flow-node">
-        <div class="flow-node-icon">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
-        </div>
-        <div>
-          <span class="flow-node-title">Route by Execution Mode</span>
-          <span class="flow-node-desc">DAILY or TELEPHONY</span>
-        </div>
-      </div>
-
-      <!-- Branch split -->
-      <div class="flex w-full max-w-md mt-0">
-        <div class="flex-1 flex flex-col items-center">
-          <div class="flow-line"></div>
-          <div class="flow-branch-node flow-branch-purple">
-            <svg class="h-3.5 w-3.5 mr-1.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m7 21 5-3 5 3"/></svg>
-            Daily Room
-          </div>
-        </div>
-        <div class="flex-1 flex flex-col items-center">
-          <div class="flow-line"></div>
-          <div class="flow-branch-node flow-branch-orange">
-            <svg class="h-3.5 w-3.5 mr-1.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Phone Call
-          </div>
-        </div>
-      </div>
-
-      <!-- Merge lines -->
-      <div class="flex w-full max-w-md">
-        <div class="flex-1 flex justify-center"><div class="flow-line"></div></div>
-        <div class="flex-1 flex justify-center"><div class="flow-line"></div></div>
-      </div>
-      <div class="w-full max-w-md flex items-center px-8">
-        <div class="flex-1 h-px bg-border"></div>
-        <div class="h-3 w-px bg-border"></div>
-        <div class="flex-1 h-px bg-border"></div>
-      </div>
-      <div class="flow-line"></div>
-
-      <!-- Step 4 -->
-      <div class="flow-node">
-        <div class="flow-node-icon">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-        </div>
-        <div>
-          <span class="flow-node-title">Voice Pipeline</span>
-          <span class="flow-node-desc">STT &#8594; LLM &#8594; TTS real-time processing</span>
-        </div>
-      </div>
-      <div class="flow-line"></div>
-
-      <!-- Step 5 -->
-      <div class="flow-node">
-        <div class="flow-node-icon">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div>
-          <span class="flow-node-title">Conversation</span>
-          <span class="flow-node-desc">LLM navigates template nodes via function calling</span>
-        </div>
-      </div>
-      <div class="flow-line"></div>
-
-      <!-- Step 6 -->
-      <div class="flow-node flow-node-accent">
-        <div class="flow-node-icon">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <div>
-          <span class="flow-node-title">Webhook Callback</span>
-          <span class="flow-node-desc">Transcription, collected data, outcome & analytics</span>
-        </div>
-      </div>
-    </div>
+  <div class="not-prose">
+    <ol class="step-list my-6 list-none pl-0">
+      <li>
+        <strong class="text-foreground text-sm">Push a lead via API</strong>
+        <p class="text-[0.8125rem] text-muted-foreground mt-1 leading-relaxed">Send a request to the <a href="/docs/misc/leads" style="color: var(--buddy-purple-light);">Leads API</a> with your template, payload, and <a href="/docs/config/call-execution" style="color: var(--buddy-purple-light);">execution mode</a></p>
+      </li>
+      <li>
+        <strong class="text-foreground text-sm">Platform validates and routes</strong>
+        <p class="text-[0.8125rem] text-muted-foreground mt-1 leading-relaxed"><a href="/docs/advanced/pre-checks" class="text-muted-foreground underline">Pre-checks</a>, template schema match, and <a href="/docs/misc/numbers#blacklist" class="text-muted-foreground underline">number blacklist</a> are validated. Then the lead is routed to <a href="/docs/daily/overview" class="text-muted-foreground underline">Daily</a> or <a href="/docs/telephony/overview" class="text-muted-foreground underline">Telephony</a>.</p>
+      </li>
+      <li>
+        <strong class="text-foreground text-sm">Voice pipeline processes in real-time</strong>
+        <p class="text-[0.8125rem] text-muted-foreground mt-1 leading-relaxed"><a href="/docs/config/stt" class="text-muted-foreground underline">STT</a> &#8594; <a href="/docs/config/llm" class="text-muted-foreground underline">LLM</a> &#8594; <a href="/docs/config/tts" class="text-muted-foreground underline">TTS</a> pipeline processes audio. The LLM navigates <a href="/docs/templates/flow-nodes" class="text-muted-foreground underline">template nodes</a> via <a href="/docs/templates/functions-hooks" class="text-muted-foreground underline">function calling</a>.</p>
+      </li>
+      <li>
+        <strong class="text-foreground text-sm">Receive webhook callbacks</strong>
+        <p class="text-[0.8125rem] text-muted-foreground mt-1 leading-relaxed">Get full transcription, collected data, outcome status, and analytics via the <a href="/docs/misc/webhooks" class="text-muted-foreground underline">reporting webhook</a>.</p>
+      </li>
+    </ol>
   </div>
 
-  <!-- Minimal example -->
-  <h2 id="quick-example">Quick Integration Example</h2>
-
-  <CodeBlock lang="bash" filename="1. Push a lead" code={`curl -X POST https://api.example.com/push/lead/v2 \\
-  -H "Authorization: Bearer YOUR_TOKEN" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "template_name": "appointment-reminder",
-    "merchant_id": "merchant-uuid",
-    "execution_mode": "DAILY_TEST",
-    "payload": {
-      "customer_name": "Jane Smith",
-      "appointment_date": "2025-01-15"
-    }
-  }'`} />
-
-  <CodeBlock lang="typescript" filename="2. Connect from your frontend" code={`import Daily from '@daily-co/daily-js';
-
-const callFrame = Daily.createFrame();
-await callFrame.join({
-  url: response.room_url,
-  token: response.token
-});
-
-callFrame.on('app-message', (event) => {
-  const { type, data } = event.data;
-  // Handle transcription, responses, etc.
-});`} />
-
-  <Callout type="tip" title="Fastest path">
-    <p>Start with <a href="/docs/daily/web-sdk" style="color: var(--buddy-purple-light); text-decoration: underline;">Daily WebRTC</a> — working voice agent in your web app in under 30 minutes.</p>
+  <Callout type="info" title="See the full picture">
+    <p>For the detailed request lifecycle with flow diagrams, execution modes, and platform stack, see the <a href="/docs/architecture" style="color: var(--buddy-purple-light); text-decoration: underline;">Architecture</a> page.</p>
   </Callout>
 
   <hr />
@@ -320,71 +203,33 @@ callFrame.on('app-message', (event) => {
     </a>
     <a href="/docs/config/stt" class="doc-card-orange group">
       <span class="text-sm font-semibold text-foreground">STT / TTS Providers</span>
-      <p class="text-xs text-muted-foreground leading-relaxed">Swap between Soniox, Deepgram, Google, Sarvam, ElevenLabs, Cartesia per template</p>
+      <p class="text-xs text-muted-foreground leading-relaxed">Swap between Soniox, Deepgram, Google, ElevenLabs, Cartesia per template</p>
     </a>
     <a href="/docs/config/vad" class="doc-card-orange group">
       <span class="text-sm font-semibold text-foreground">VAD & Interruption</span>
-      <p class="text-xs text-muted-foreground leading-relaxed">Fine-tune voice activity detection, turn-taking behavior, and barge-in handling</p>
+      <p class="text-xs text-muted-foreground leading-relaxed">Fine-tune voice activity detection, turn-taking, and barge-in handling</p>
     </a>
-  </div>
-
-  <!-- Execution modes -->
-  <h2 id="execution-modes">Execution Modes</h2>
-
-  <div class="overflow-x-auto rounded-xl border border-border my-4">
-    <table>
-      <thead>
-        <tr><th>Mode</th><th>Transport</th><th>Use Case</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>DAILY</code></td><td>Daily.co WebRTC rooms</td><td>Production web/mobile voice sessions</td></tr>
-        <tr><td><code>DAILY_TEST</code></td><td>Daily.co WebRTC rooms</td><td>Playground / development testing</td></tr>
-        <tr><td><code>TELEPHONY</code></td><td>Twilio / Plivo / Exotel</td><td>Production outbound & inbound calls</td></tr>
-        <tr><td><code>TELEPHONY_TEST</code></td><td>Twilio / Plivo / Exotel</td><td>Test calls (excluded from analytics)</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Platform stack -->
-  <h2 id="platform-stack">Platform Stack</h2>
-
-  <div class="overflow-x-auto rounded-xl border border-border my-4">
-    <table>
-      <thead><tr><th>Layer</th><th>Technology</th><th>Customizable</th></tr></thead>
-      <tbody>
-        <tr><td>API</td><td>FastAPI + Uvicorn</td><td>&#8212;</td></tr>
-        <tr><td>Voice Engine</td><td>Pipecat-AI</td><td>&#8212;</td></tr>
-        <tr><td>WebRTC</td><td>Daily.co</td><td>Room config, recording</td></tr>
-        <tr><td>STT</td><td>Soniox, Deepgram, Sarvam, Google, OpenAI</td><td>Per-template</td></tr>
-        <tr><td>LLM</td><td>Azure OpenAI (GPT-4o)</td><td>Model, temp, tokens</td></tr>
-        <tr><td>TTS</td><td>ElevenLabs, Cartesia, Sarvam, Google</td><td>Voice, speed, style</td></tr>
-        <tr><td>Telephony</td><td>Twilio, Plivo, Exotel</td><td>Per-merchant</td></tr>
-        <tr><td>Database</td><td>PostgreSQL (asyncpg)</td><td>&#8212;</td></tr>
-        <tr><td>Cache</td><td>Redis Cluster</td><td>&#8212;</td></tr>
-        <tr><td>Observability</td><td>Langfuse, OpenTelemetry</td><td>Traces, metrics</td></tr>
-      </tbody>
-    </table>
   </div>
 
   <!-- Next steps -->
   <h2 id="next-steps">Next Steps</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6 not-prose">
+    <a href="/docs/architecture" class="doc-card group">
+      <span class="text-sm font-semibold text-foreground">Architecture</span>
+      <p class="text-xs text-muted-foreground">System design, request lifecycle & flow diagrams</p>
+    </a>
     <a href="/docs/auth/overview" class="doc-card group">
       <span class="text-sm font-semibold text-foreground">Authentication</span>
       <p class="text-xs text-muted-foreground">Set up API tokens and RBAC</p>
     </a>
-    <a href="/docs/quickstart" class="doc-card group">
+    <a href="/docs/quickstart" class="doc-card-orange group">
       <span class="text-sm font-semibold text-foreground">Quick Start</span>
       <p class="text-xs text-muted-foreground">Your first voice agent in 5 minutes</p>
     </a>
     <a href="/docs/templates/overview" class="doc-card-orange group">
       <span class="text-sm font-semibold text-foreground">Build a Template</span>
       <p class="text-xs text-muted-foreground">Design your conversation flow</p>
-    </a>
-    <a href="/docs/config/template" class="doc-card-orange group">
-      <span class="text-sm font-semibold text-foreground">Configure Providers</span>
-      <p class="text-xs text-muted-foreground">Tune STT, TTS, LLM, VAD</p>
     </a>
   </div>
 </div>

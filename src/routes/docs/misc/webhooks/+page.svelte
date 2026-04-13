@@ -14,7 +14,7 @@
 
   <h2 id="inbound-webhooks">Inbound Webhooks (From Telephony Providers)</h2>
   <p>
-    These endpoints are called by telephony providers (Twilio, Plivo, Exotel) during call
+    These endpoints are called by telephony providers (<a href="/docs/telephony/twilio">Twilio</a>, <a href="/docs/telephony/plivo">Plivo</a>, <a href="/docs/telephony/exotel">Exotel</a>) during call
     lifecycle events. They are configured automatically when you set up a provider.
   </p>
 
