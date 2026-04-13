@@ -302,7 +302,7 @@ export function useVoiceSession(baseUrl: string) {
   <div class="not-prose feature-grid">
     <a href="/docs/daily/rtvi-events" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">⚡</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">RTVI Events Reference</h3>
           <p class="text-xs text-muted-foreground">Full event type reference with payload schemas and handling patterns.</p>
@@ -311,7 +311,7 @@ export function useVoiceSession(baseUrl: string) {
     </a>
     <a href="/docs/daily/overview" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">🌐</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">Daily Overview</h3>
           <p class="text-xs text-muted-foreground">Architecture, connection flow, and transport configuration details.</p>

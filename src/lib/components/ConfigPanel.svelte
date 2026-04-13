@@ -3,12 +3,10 @@
 
   let {
     title,
-    icon = '⚙️',
     variant = 'default',
     children
   }: {
     title: string;
-    icon?: string;
     variant?: 'default' | 'integrate' | 'customize';
     children?: Snippet;
   } = $props();
@@ -24,9 +22,12 @@
 
 <div class="config-panel my-6 rounded-xl border {s.border} overflow-hidden" style="background: rgba(255,255,255,0.01);">
   <div class="flex items-center gap-3 border-b border-border/50 px-5 py-3" style="background: rgba(255,255,255,0.02);">
-    <span class="text-base">{icon}</span>
+    <div class="flex items-center gap-1.5">
+      <span class="h-2 w-2 rounded-full {s.dot} opacity-70"></span>
+      <span class="h-2 w-2 rounded-full {s.dot} opacity-40"></span>
+      <span class="h-2 w-2 rounded-full {s.dot} opacity-20"></span>
+    </div>
     <span class="text-[0.8125rem] font-semibold {s.accent}">{title}</span>
-    <span class="h-1.5 w-1.5 rounded-full {s.dot} opacity-60 ml-auto"></span>
   </div>
   <div class="p-5">
     {#if children}

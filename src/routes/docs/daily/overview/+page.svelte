@@ -86,7 +86,7 @@ const { room_url, token, session_id } = await response.json();
   <h2 id="transport-configuration">Transport Configuration</h2>
   <p>Daily uses higher-fidelity audio settings compared to telephony. Understanding the differences is essential when configuring your pipeline.</p>
 
-  <ConfigPanel title="Daily Transport Settings" icon="🔊" variant="integrate">
+  <ConfigPanel title="Daily Transport Settings" iconHtml='<svg class="h-4 w-4 text-violet-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>' variant="integrate">
     <div class="overflow-x-auto rounded-xl border border-border my-2">
       <table class="w-full text-sm">
         <thead class="bg-muted/30">
@@ -155,7 +155,7 @@ const { room_url, token, session_id } = await response.json();
   <div class="not-prose feature-grid">
     <a href="/docs/daily/web-sdk" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">📦</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">Web SDK Setup</h3>
           <p class="text-xs text-muted-foreground">Install the Pipecat client SDK and connect your frontend to a Daily voice session.</p>
@@ -164,7 +164,7 @@ const { room_url, token, session_id } = await response.json();
     </a>
     <a href="/docs/daily/rtvi-events" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">⚡</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">RTVI Events</h3>
           <p class="text-xs text-muted-foreground">Handle real-time transcription, bot responses, metrics, and function call events.</p>
@@ -173,7 +173,7 @@ const { room_url, token, session_id } = await response.json();
     </a>
     <a href="/docs/daily/recording" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">🎙️</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">Recording</h3>
           <p class="text-xs text-muted-foreground">Cloud recording configuration, retrieval, and storage integration.</p>
@@ -182,7 +182,7 @@ const { room_url, token, session_id } = await response.json();
     </a>
     <a href="/docs/misc/leads" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">👤</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">Leads API</h3>
           <p class="text-xs text-muted-foreground">Push leads with DAILY execution mode to initiate browser voice sessions.</p>

@@ -192,7 +192,7 @@ if (response.ok) {
   <div class="not-prose feature-grid">
     <a href="/docs/daily/overview" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">🌐</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">Daily Overview</h3>
           <p class="text-xs text-muted-foreground">Architecture, connection flow, and room configuration.</p>
@@ -201,7 +201,7 @@ if (response.ok) {
     </a>
     <a href="/docs/misc/leads" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">👤</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">Leads API</h3>
           <p class="text-xs text-muted-foreground">Access recording URLs and session metadata on lead records.</p>
@@ -210,7 +210,7 @@ if (response.ok) {
     </a>
     <a href="/docs/misc/webhooks" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">🔔</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">Webhooks</h3>
           <p class="text-xs text-muted-foreground">Get notified when recordings are ready for download.</p>
@@ -219,7 +219,7 @@ if (response.ok) {
     </a>
     <a href="/docs/advanced/observability" class="card-integrate block no-underline">
       <div class="flex items-start gap-3">
-        <span class="text-2xl">📊</span>
+        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10"><svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
         <div>
           <h3 class="text-sm font-semibold text-foreground mb-1">Observability</h3>
           <p class="text-xs text-muted-foreground">Monitor recording retrieval success rates and latency.</p>

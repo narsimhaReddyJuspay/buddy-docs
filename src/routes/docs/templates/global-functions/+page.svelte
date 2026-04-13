@@ -54,19 +54,19 @@
   <div class="not-prose grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
     <div class="card-customize group transition-all duration-200 hover:-translate-y-0.5">
       <div class="p-5">
-        <h3 class="text-sm font-semibold text-amber-400 mb-2">🔍 Data Lookups</h3>
+        <div class="flex items-center gap-2 mb-2"><svg class="h-4 w-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><h3 class="text-sm font-semibold text-amber-400">Data Lookups</h3></div>
         <p class="text-xs text-muted-foreground">Check order status, account balance, appointment details — from any node.</p>
       </div>
     </div>
     <div class="card-customize group transition-all duration-200 hover:-translate-y-0.5">
       <div class="p-5">
-        <h3 class="text-sm font-semibold text-amber-400 mb-2">👤 Agent Transfer</h3>
+        <div class="flex items-center gap-2 mb-2"><svg class="h-4 w-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3 class="text-sm font-semibold text-amber-400">Agent Transfer</h3></div>
         <p class="text-xs text-muted-foreground">Transfer to a live human agent whenever the customer requests it.</p>
       </div>
     </div>
     <div class="card-customize group transition-all duration-200 hover:-translate-y-0.5">
       <div class="p-5">
-        <h3 class="text-sm font-semibold text-amber-400 mb-2">🕐 Utility Ops</h3>
+        <div class="flex items-center gap-2 mb-2"><svg class="h-4 w-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3 class="text-sm font-semibold text-amber-400">Utility Ops</h3></div>
         <p class="text-xs text-muted-foreground">Get current time, repeat information, or perform platform operations.</p>
       </div>
     </div>

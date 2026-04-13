@@ -3,14 +3,16 @@
     title,
     description,
     href,
-    icon,
+    icon = '',
+    iconHtml = '',
     provider = '',
     status = 'available'
   }: {
     title: string;
     description: string;
     href: string;
-    icon: string;
+    icon?: string;
+    iconHtml?: string;
     provider?: string;
     status?: 'available' | 'beta' | 'coming-soon';
   } = $props();
@@ -36,7 +38,11 @@
   <!-- Icon + Provider -->
   <div class="flex items-center gap-3">
     <div class="flex h-10 w-10 items-center justify-center rounded-lg border border-border/60 bg-muted/30 text-xl">
-      {icon}
+      {#if iconHtml}
+        {@html iconHtml}
+      {:else}
+        {icon}
+      {/if}
     </div>
     {#if provider}
       <span class="rounded-md bg-violet-500/8 px-2 py-0.5 text-[0.5625rem] font-bold uppercase tracking-wider text-violet-400">

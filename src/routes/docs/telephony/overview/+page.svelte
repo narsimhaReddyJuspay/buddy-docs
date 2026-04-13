@@ -110,7 +110,7 @@
       title="Twilio"
       description="Global coverage with TwiML-based call control, Conference API for transfers, and native recording."
       href="/docs/telephony/twilio"
-      icon="📞"
+      iconHtml='<svg class="h-5 w-5 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'
       provider="Twilio"
       status="available"
     />
@@ -118,7 +118,7 @@
       title="Plivo"
       description="Cost-effective global telephony with XML-based call control and PCM audio streaming."
       href="/docs/telephony/plivo"
-      icon="🔗"
+      iconHtml='<svg class="h-5 w-5 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>'
       provider="Plivo"
       status="available"
     />
@@ -126,7 +126,7 @@
       title="Exotel"
       description="India-focused provider with applet-based routing and native bridge transfers."
       href="/docs/telephony/exotel"
-      icon="🇮🇳"
+      iconHtml='<svg class="h-5 w-5 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>'
       provider="Exotel"
       status="available"
     />
@@ -136,7 +136,7 @@
   <h2 id="provider-configuration">Provider Configuration</h2>
   <p>Select your telephony provider and supply the required credentials as environment variables. The system auto-detects which provider to use based on the outbound number's <code>provider</code> field.</p>
 
-  <ConfigPanel title="Telephony Provider Selection" icon="📡" variant="integrate">
+  <ConfigPanel title="Telephony Provider Selection" iconHtml='<svg class="h-4 w-4 text-violet-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/><line x1="2" y1="20" x2="2.01" y2="20"/></svg>' variant="integrate">
     <div class="space-y-3 text-sm">
       <div class="flex items-baseline justify-between border-b border-border/40 pb-2">
         <span class="text-muted-foreground">Provider</span>

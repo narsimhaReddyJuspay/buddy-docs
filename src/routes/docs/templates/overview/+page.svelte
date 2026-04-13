@@ -301,28 +301,28 @@
   <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
     <div class="card-customize group transition-all duration-200 hover:-translate-y-0.5">
       <div class="p-5">
-        <h3 class="text-sm font-semibold text-amber-400 mb-2">🔀 Flow Nodes</h3>
+        <div class="flex items-center gap-2 mb-2"><svg class="h-4 w-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg><h3 class="text-sm font-semibold text-amber-400">Flow Nodes</h3></div>
         <p class="text-xs text-muted-foreground">Define conversation phases, system prompts, pre/post actions, and per-node config overrides.</p>
         <a href="/docs/templates/flow-nodes" class="text-xs text-amber-400/80 hover:text-amber-400 mt-2 inline-block">Learn more →</a>
       </div>
     </div>
     <div class="card-customize group transition-all duration-200 hover:-translate-y-0.5">
       <div class="p-5">
-        <h3 class="text-sm font-semibold text-amber-400 mb-2">⚡ Functions &amp; Hooks</h3>
+        <div class="flex items-center gap-2 mb-2"><svg class="h-4 w-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><h3 class="text-sm font-semibold text-amber-400">Functions &amp; Hooks</h3></div>
         <p class="text-xs text-muted-foreground">LLM-callable tools with side-effect hooks for HTTP calls, database updates, and node transitions.</p>
         <a href="/docs/templates/functions-hooks" class="text-xs text-amber-400/80 hover:text-amber-400 mt-2 inline-block">Learn more →</a>
       </div>
     </div>
     <div class="card-customize group transition-all duration-200 hover:-translate-y-0.5">
       <div class="p-5">
-        <h3 class="text-sm font-semibold text-amber-400 mb-2">🌐 Global Functions</h3>
+        <div class="flex items-center gap-2 mb-2"><svg class="h-4 w-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><h3 class="text-sm font-semibold text-amber-400">Global Functions</h3></div>
         <p class="text-xs text-muted-foreground">Cross-node functions for data lookups, live agent transfer, and utility operations.</p>
         <a href="/docs/templates/global-functions" class="text-xs text-amber-400/80 hover:text-amber-400 mt-2 inline-block">Learn more →</a>
       </div>
     </div>
     <div class="card-customize group transition-all duration-200 hover:-translate-y-0.5">
       <div class="p-5">
-        <h3 class="text-sm font-semibold text-amber-400 mb-2">📝 Variables</h3>
+        <div class="flex items-center gap-2 mb-2"><svg class="h-4 w-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><h3 class="text-sm font-semibold text-amber-400">Variables</h3></div>
         <p class="text-xs text-muted-foreground">Dynamic placeholder syntax for injecting lead data, secrets, and runtime values into any part of the template.</p>
         <a href="/docs/templates/variables" class="text-xs text-amber-400/80 hover:text-amber-400 mt-2 inline-block">Learn more →</a>
       </div>
