@@ -1,0 +1,317 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --radius: 0.625rem;
+  --default-font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono-font-family: 'Geist Mono', 'JetBrains Mono', 'Fira Code', monospace;
+  --background: oklch(100% 0 0);
+  --foreground: oklch(14.5% 0 0);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(14.5% 0 0);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(14.5% 0 0);
+  --primary: oklch(20.5% 0 0);
+  --primary-foreground: oklch(98.5% 0 0);
+  --secondary: oklch(97% 0 0);
+  --secondary-foreground: oklch(20.5% 0 0);
+  --muted: oklch(97% 0 0);
+  --muted-foreground: oklch(55.6% 0 0);
+  --accent: oklch(97% 0 0);
+  --accent-foreground: oklch(20.5% 0 0);
+  --destructive: oklch(57.7% 0.245 27.325);
+  --border: oklch(92.2% 0 0);
+  --input: oklch(92.2% 0 0);
+  --ring: oklch(70.8% 0 0);
+  --sidebar: oklch(98.5% 0 0);
+  --sidebar-foreground: oklch(14.5% 0 0);
+  --sidebar-primary: oklch(20.5% 0 0);
+  --sidebar-primary-foreground: oklch(98.5% 0 0);
+  --sidebar-accent: oklch(97% 0 0);
+  --sidebar-accent-foreground: oklch(20.5% 0 0);
+  --sidebar-border: oklch(92.2% 0 0);
+  --sidebar-ring: oklch(70.8% 0 0);
+  --buddy-purple: #7c3aed;
+  --buddy-purple-deep: #572799;
+  --buddy-purple-vivid: #9142ff;
+  --buddy-purple-light: #b29ff0;
+  --buddy-purple-soft-bg: #f5f0ff;
+  --buddy-orange: #ec7001;
+  --buddy-orange-light: #fa8f2c;
+  --buddy-orange-bright: #ff7300;
+}
+
+.dark {
+  --background: oklch(14.5% 0 0);
+  --foreground: oklch(98.5% 0 0);
+  --card: oklch(20.5% 0 0);
+  --card-foreground: oklch(98.5% 0 0);
+  --popover: oklch(20.5% 0 0);
+  --popover-foreground: oklch(98.5% 0 0);
+  --primary: oklch(92.2% 0 0);
+  --primary-foreground: oklch(20.5% 0 0);
+  --secondary: oklch(27.9% 0 0);
+  --secondary-foreground: oklch(98.5% 0 0);
+  --muted: oklch(27.9% 0 0);
+  --muted-foreground: oklch(70.4% 0 0);
+  --accent: oklch(27.9% 0 0);
+  --accent-foreground: oklch(98.5% 0 0);
+  --destructive: oklch(70.4% 0.191 22.216);
+  --border: oklch(100% 0 0 / 10%);
+  --input: oklch(100% 0 0 / 12%);
+  --ring: oklch(55.1% 0 0);
+  --sidebar: oklch(20.5% 0 0);
+  --sidebar-foreground: oklch(98.5% 0 0);
+  --sidebar-primary: oklch(60% 0 0);
+  --sidebar-primary-foreground: oklch(98.5% 0 0);
+  --sidebar-accent: oklch(27.9% 0 0);
+  --sidebar-accent-foreground: oklch(98.5% 0 0);
+  --sidebar-border: oklch(100% 0 0 / 10%);
+  --sidebar-ring: oklch(55.1% 0 0);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--default-font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-thumb { @apply bg-muted-foreground/12 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/20; }
+::-webkit-scrollbar-track { background: transparent; }
+
+.prose {
+  @apply text-foreground leading-relaxed;
+  font-size: 0.9375rem;
+}
+.prose p {
+  @apply text-muted-foreground mb-5 leading-7;
+}
+.prose strong {
+  @apply text-foreground font-semibold;
+}
+.prose a {
+  @apply font-medium underline underline-offset-4 transition-colors;
+  color: var(--buddy-purple);
+  text-decoration-color: color-mix(in srgb, var(--buddy-purple) 30%, transparent);
+}
+.prose a:hover {
+  color: var(--buddy-purple-light);
+  text-decoration-color: color-mix(in srgb, var(--buddy-purple-light) 50%, transparent);
+}
+.prose ul, .prose ol {
+  @apply mb-5 pl-6 text-muted-foreground;
+}
+.prose li {
+  @apply mb-2 leading-7;
+}
+.prose li::marker {
+  color: var(--buddy-purple);
+  opacity: 0.4;
+}
+.prose hr {
+  @apply border-border my-10;
+}
+.prose :not(pre) > code {
+  font-family: var(--mono-font-family);
+  @apply text-[0.8125rem] px-1.5 py-0.5 rounded-md font-medium border;
+  background: color-mix(in srgb, var(--buddy-purple) 6%, transparent);
+  color: var(--buddy-purple-light);
+  border-color: color-mix(in srgb, var(--buddy-purple) 10%, transparent);
+}
+.prose pre {
+  @apply rounded-xl p-5 overflow-x-auto my-5 text-[0.8125rem] leading-relaxed;
+  font-family: var(--mono-font-family);
+  background: oklch(10% 0 0);
+  color: oklch(90% 0 0);
+  border: 1px solid oklch(100% 0 0 / 6%);
+}
+.prose h1 {
+  @apply text-3xl font-bold text-foreground tracking-tight mb-2;
+  border: none;
+}
+.prose h2 {
+  @apply text-lg font-semibold text-foreground mt-12 mb-4 pb-3 border-b border-border scroll-mt-20;
+}
+.prose h3 {
+  @apply text-base font-semibold text-foreground mt-8 mb-3 scroll-mt-20;
+}
+.prose h4 {
+  @apply text-sm font-semibold text-foreground mt-6 mb-2;
+}
+.prose table {
+  @apply w-full text-sm my-5;
+}
+.prose thead {
+  @apply bg-muted/40;
+}
+.prose th {
+  @apply text-left p-3 font-semibold text-foreground border-b border-border whitespace-nowrap text-xs uppercase tracking-wider;
+}
+.prose td {
+  @apply p-3 text-muted-foreground border-b border-border/50 leading-relaxed;
+}
+.prose tbody tr:last-child td {
+  @apply border-b-0;
+}
+.prose tbody tr {
+  @apply transition-colors hover:bg-muted/15;
+}
+
+.doc-card {
+  @apply flex flex-col gap-3 rounded-xl border border-border p-5 transition-all duration-200;
+  background: linear-gradient(to top, color-mix(in srgb, var(--buddy-purple) 3%, var(--card)), var(--card));
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.doc-card:hover {
+  border-color: color-mix(in srgb, var(--buddy-purple) 25%, var(--border));
+  box-shadow: 0 4px 24px 0 color-mix(in srgb, var(--buddy-purple) 8%, transparent);
+  transform: translateY(-1px);
+}
+
+.doc-card-orange {
+  @apply flex flex-col gap-3 rounded-xl border border-border p-5 transition-all duration-200;
+  background: linear-gradient(to top, color-mix(in srgb, var(--buddy-orange) 3%, var(--card)), var(--card));
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.doc-card-orange:hover {
+  border-color: color-mix(in srgb, var(--buddy-orange) 25%, var(--border));
+  box-shadow: 0 4px 24px 0 color-mix(in srgb, var(--buddy-orange) 8%, transparent);
+  transform: translateY(-1px);
+}
+
+.glass-card {
+  @apply rounded-xl border p-6;
+  border-color: oklch(100% 0 0 / 6%);
+  background: oklch(100% 0 0 / 3%);
+  backdrop-filter: blur(20px);
+}
+
+.feature-grid {
+  @apply grid gap-4 my-6;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.config-panel {
+  @apply rounded-xl border border-border bg-card overflow-hidden my-6;
+}
+.config-panel-header {
+  @apply flex items-center gap-3 border-b border-border px-5 py-3 bg-muted/30;
+}
+.config-panel-body {
+  @apply p-5;
+}
+
+.step-list {
+  counter-reset: step-counter;
+}
+.step-list > li {
+  counter-increment: step-counter;
+  @apply relative pl-10 mb-6;
+}
+.step-list > li::before {
+  content: counter(step-counter);
+  @apply absolute left-0 top-0.5 flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white;
+  background: linear-gradient(135deg, var(--buddy-purple), var(--buddy-purple-light));
+}
+
+.badge-purple {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-[0.6875rem] font-semibold;
+  background: color-mix(in srgb, var(--buddy-purple) 12%, transparent);
+  color: var(--buddy-purple-light);
+  border: 1px solid color-mix(in srgb, var(--buddy-purple) 20%, transparent);
+}
+.badge-orange {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-[0.6875rem] font-semibold;
+  background: color-mix(in srgb, var(--buddy-orange) 12%, transparent);
+  color: var(--buddy-orange-light);
+  border: 1px solid color-mix(in srgb, var(--buddy-orange) 20%, transparent);
+}
+.badge-neutral {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-[0.6875rem] font-semibold bg-muted text-muted-foreground border border-border;
+}
