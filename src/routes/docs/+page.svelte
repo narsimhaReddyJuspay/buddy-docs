@@ -17,18 +17,115 @@
     </div>
 
     <h1 class="text-3xl font-bold tracking-tight text-foreground mb-3" style="letter-spacing: -0.02em;">
-      Integrate Voice AI<br/>
-      <span style="background: linear-gradient(135deg, var(--buddy-purple), var(--buddy-purple-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">into your product</span>
+      Breeze Buddy<br/>
+      <span style="background: linear-gradient(135deg, var(--buddy-purple), var(--buddy-purple-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Voice AI Platform</span>
     </h1>
 
-    <p class="text-base text-muted-foreground max-w-xl leading-relaxed">
-      Connect real-time conversational AI via <strong class="text-foreground">Daily WebRTC</strong> or <strong class="text-foreground">Telephony</strong>.
-      Customize every aspect through JSON-driven templates — no code deployment needed.
+    <p class="text-base text-muted-foreground max-w-2xl leading-relaxed">
+      Breeze Buddy is an enterprise-grade <strong class="text-foreground">conversational voice AI platform</strong> that enables businesses to deploy intelligent voice agents at scale — across phone calls and web applications — without writing a single line of agent logic.
     </p>
+  </div>
+
+  <!-- What is Breeze Buddy -->
+  <h2 id="what-is-breeze-buddy">What is Breeze Buddy?</h2>
+
+  <p>
+    Breeze Buddy is a fully managed voice AI backend that handles the entire lifecycle of a voice conversation —
+    from receiving a lead, placing or connecting a call, running a real-time speech pipeline (STT → LLM → TTS),
+    navigating a template-driven conversation flow, to delivering structured outcomes via webhooks.
+  </p>
+
+  <p>
+    Think of it as <strong>a programmable voice agent as a service</strong>. You define <em>what</em> the agent should
+    say and do through JSON templates, and Breeze Buddy handles the <em>how</em> — infrastructure, real-time audio
+    processing, telephony integration, retry logic, analytics, and observability.
+  </p>
+
+  <div class="my-6 not-prose grid grid-cols-1 sm:grid-cols-3 gap-3">
+    <div class="rounded-xl border border-border bg-card p-4">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg" style="background: color-mix(in srgb, var(--buddy-purple) 12%, transparent);">
+          <svg class="h-4 w-4" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
+        <span class="text-sm font-semibold text-foreground">No-Code Agent Logic</span>
+      </div>
+      <p class="text-xs text-muted-foreground leading-relaxed">Define conversation flows, prompts, and transitions in JSON templates. Deploy changes instantly without code releases.</p>
+    </div>
+    <div class="rounded-xl border border-border bg-card p-4">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg" style="background: color-mix(in srgb, var(--buddy-purple) 12%, transparent);">
+          <svg class="h-4 w-4" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+        </div>
+        <span class="text-sm font-semibold text-foreground">Dual Transport</span>
+      </div>
+      <p class="text-xs text-muted-foreground leading-relaxed">Use Daily WebRTC for browser-based voice or Telephony (Twilio, Plivo, Exotel) for phone calls — same template, same API.</p>
+    </div>
+    <div class="rounded-xl border border-border bg-card p-4">
+      <div class="flex items-center gap-2 mb-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg" style="background: color-mix(in srgb, var(--buddy-purple) 12%, transparent);">
+          <svg class="h-4 w-4" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <span class="text-sm font-semibold text-foreground">Enterprise Ready</span>
+      </div>
+      <p class="text-xs text-muted-foreground leading-relaxed">Multi-tenant RBAC, rate limiting, number blacklists, retry logic, analytics, Langfuse observability — all built in.</p>
+    </div>
+  </div>
+
+  <!-- How it's different -->
+  <h2 id="how-its-different">How is it Different?</h2>
+
+  <p>Most voice AI solutions require you to write agent code, manage WebSocket connections, handle audio streams, and orchestrate STT/LLM/TTS yourself. Breeze Buddy abstracts all of that:</p>
+
+  <div class="overflow-x-auto rounded-xl border border-border my-4">
+    <table>
+      <thead>
+        <tr><th>Capability</th><th>Typical Voice AI</th><th>Breeze Buddy</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Agent logic</td><td>Custom Python/Node code</td><td><strong>JSON templates</strong> — no deployment needed</td></tr>
+        <tr><td>Conversation flow</td><td>Hard-coded state machines</td><td><strong>Graph-based flow nodes</strong> with LLM-driven transitions</td></tr>
+        <tr><td>Voice pipeline</td><td>Stitch together STT + LLM + TTS</td><td><strong>Managed pipeline</strong> — Pipecat-AI under the hood</td></tr>
+        <tr><td>Telephony</td><td>Write Twilio/Plivo integrations</td><td><strong>Built-in</strong> — Twilio, Plivo, Exotel with auto-retry</td></tr>
+        <tr><td>Browser voice</td><td>Build custom WebRTC client</td><td><strong>Daily SDK + RTVI</strong> — 10 lines of code</td></tr>
+        <tr><td>Provider switching</td><td>Rewrite integration layer</td><td><strong>Per-template config</strong> — swap STT/TTS/LLM in JSON</td></tr>
+        <tr><td>Multi-tenancy</td><td>Build yourself</td><td><strong>Native RBAC</strong> — admin &gt; reseller &gt; merchant &gt; user</td></tr>
+        <tr><td>Analytics</td><td>Custom dashboards</td><td><strong>Built-in query API</strong> — sentiment, outcomes, funnels</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Key Use Cases -->
+  <h2 id="use-cases">Key Use Cases</h2>
+
+  <div class="not-prose">
+    <ul class="space-y-2 my-4">
+      <li class="flex items-start gap-2 text-sm text-muted-foreground">
+        <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><strong class="text-foreground">Appointment reminders & confirmations</strong> — outbound calls with date/time confirmation and rescheduling</span>
+      </li>
+      <li class="flex items-start gap-2 text-sm text-muted-foreground">
+        <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><strong class="text-foreground">Lead qualification</strong> — automated voice screening with structured data collection</span>
+      </li>
+      <li class="flex items-start gap-2 text-sm text-muted-foreground">
+        <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><strong class="text-foreground">Customer support IVR</strong> — inbound call handling with intent routing and warm transfer to humans</span>
+      </li>
+      <li class="flex items-start gap-2 text-sm text-muted-foreground">
+        <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><strong class="text-foreground">Survey & feedback collection</strong> — multi-question voice surveys with sentiment analysis</span>
+      </li>
+      <li class="flex items-start gap-2 text-sm text-muted-foreground">
+        <svg class="h-4 w-4 mt-0.5 shrink-0" style="color: var(--buddy-purple-light);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        <span><strong class="text-foreground">In-app voice assistants</strong> — embed real-time voice AI in web/mobile apps via Daily WebRTC</span>
+      </li>
+    </ul>
   </div>
 
   <!-- Integration paths — primary CTA cards -->
   <h2 id="choose-integration">Choose Your Integration</h2>
+
+  <p>Breeze Buddy supports two transport modes. Both use the same template system and API — the only difference is how audio reaches the user.</p>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 not-prose">
     <a href="/docs/daily/overview" class="doc-card group">
@@ -37,7 +134,7 @@
       </div>
       <div>
         <span class="text-base font-semibold text-foreground">Daily WebRTC</span>
-        <p class="text-sm text-muted-foreground mt-1.5 leading-relaxed">Integrate real-time voice AI into web and mobile apps using Daily's WebRTC infrastructure. Low-latency audio streaming, RTVI events, and recording support.</p>
+        <p class="text-sm text-muted-foreground mt-1.5 leading-relaxed">Embed real-time voice AI into web and mobile apps. Low-latency audio via Daily's WebRTC infrastructure, RTVI events, and recording support.</p>
       </div>
       <div class="flex items-center gap-2 mt-auto pt-2">
         <span class="text-xs font-medium" style="color: var(--buddy-purple-light);">Get started &#8594;</span>
@@ -61,10 +158,10 @@
   </div>
 
   <!-- How integration works -->
-  <h2 id="how-it-works">How Integration Works</h2>
+  <h2 id="how-it-works">How It Works</h2>
 
   <p>
-    Push a lead with your template configuration via the API. The platform handles the entire voice interaction lifecycle:
+    The core workflow is simple: push a lead via the API with a template, and Breeze Buddy handles everything from there.
   </p>
 
   <!-- Vertical flow diagram -->
@@ -172,27 +269,6 @@
     </div>
   </div>
 
-  <div class="not-prose">
-    <ol class="step-list my-6 list-none pl-0">
-      <li>
-        <strong class="text-foreground text-sm">Push a lead via API</strong>
-        <p class="text-[0.8125rem] text-muted-foreground mt-1 leading-relaxed">Send <code class="text-[0.75rem] px-1.5 py-0.5 rounded border" style="background: color-mix(in srgb, var(--buddy-purple) 6%, transparent); color: var(--buddy-purple-light); border-color: color-mix(in srgb, var(--buddy-purple) 10%, transparent);">POST /push/lead/v2</code> with your payload, template, and execution mode</p>
-      </li>
-      <li>
-        <strong class="text-foreground text-sm">Platform validates and queues</strong>
-        <p class="text-[0.8125rem] text-muted-foreground mt-1 leading-relaxed">Template existence, payload schema match, and number blacklist are validated automatically</p>
-      </li>
-      <li>
-        <strong class="text-foreground text-sm">Voice pipeline processes in real-time</strong>
-        <p class="text-[0.8125rem] text-muted-foreground mt-1 leading-relaxed">STT &#8594; LLM &#8594; TTS pipeline processes audio. The LLM navigates template nodes via function calling</p>
-      </li>
-      <li>
-        <strong class="text-foreground text-sm">Receive webhook callbacks</strong>
-        <p class="text-[0.8125rem] text-muted-foreground mt-1 leading-relaxed">Get full transcription, collected data, outcome status, and analytics on completion</p>
-      </li>
-    </ol>
-  </div>
-
   <!-- Minimal example -->
   <h2 id="quick-example">Quick Integration Example</h2>
 
@@ -294,13 +370,13 @@ callFrame.on('app-message', (event) => {
   <h2 id="next-steps">Next Steps</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6 not-prose">
-    <a href="/docs/daily/web-sdk" class="doc-card group">
-      <span class="text-sm font-semibold text-foreground">Set up Daily SDK</span>
-      <p class="text-xs text-muted-foreground">Add voice to your web app</p>
+    <a href="/docs/auth/overview" class="doc-card group">
+      <span class="text-sm font-semibold text-foreground">Authentication</span>
+      <p class="text-xs text-muted-foreground">Set up API tokens and RBAC</p>
     </a>
-    <a href="/docs/telephony/twilio" class="doc-card group">
-      <span class="text-sm font-semibold text-foreground">Configure Twilio</span>
-      <p class="text-xs text-muted-foreground">Start making phone calls</p>
+    <a href="/docs/quickstart" class="doc-card group">
+      <span class="text-sm font-semibold text-foreground">Quick Start</span>
+      <p class="text-xs text-muted-foreground">Your first voice agent in 5 minutes</p>
     </a>
     <a href="/docs/templates/overview" class="doc-card-orange group">
       <span class="text-sm font-semibold text-foreground">Build a Template</span>

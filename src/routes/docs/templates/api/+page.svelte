@@ -120,15 +120,6 @@
   }
 }`} />
 
-  <h3 id="update-response">Response</h3>
-
-  <CodeBlock lang="json" code={`{
-  "id": "tpl_xyz789",
-  "name": "appointment-reminder-v2",
-  "updated_at": "2025-01-16T08:00:00Z",
-  "...": "full template object"
-}`} />
-
   <h2 id="delete-template">Delete Template</h2>
 
   <ApiEndpoint method="DELETE" path="/templates/{id}" />

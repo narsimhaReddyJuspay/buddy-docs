@@ -8,15 +8,17 @@
 
 <div class="prose">
   <h1>Authentication</h1>
-  <p class="text-muted-foreground text-lg mb-8">JWT-based authentication, server-to-server tokens, and role-based access control.</p>
+  <p class="text-muted-foreground text-lg mb-8">JWT-based authentication, server-to-server tokens, and role-based access control for all API interactions.</p>
 
   <h2 id="overview">Overview</h2>
   <p>
-    All API requests must include a valid Bearer token in the <code>Authorization</code> header.
-    Breeze Buddy supports two token types: short-lived <strong>access tokens</strong> obtained via
-    user login, and long-lived <strong>server-to-server (S2S) tokens</strong> for backend
-    integrations.
+    All Breeze Buddy API requests must include a valid Bearer token in the <code>Authorization</code> header.
+    The platform supports two token types:
   </p>
+  <ul>
+    <li><strong>Access tokens</strong> — short-lived JWTs obtained via user login</li>
+    <li><strong>Server-to-server (S2S) tokens</strong> — long-lived tokens for backend integrations</li>
+  </ul>
 
   <CodeBlock lang="bash" code={`Authorization: Bearer <token>`} />
 
@@ -83,34 +85,6 @@
 
   <CodeBlock lang="bash" code={`curl -X GET https://api.breezebuddy.ai/templates \\
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIs..."`} />
-
-  <h2 id="rbac">Role-Based Access Control (RBAC)</h2>
-  <p>
-    Every token carries a role that determines which resources the caller can access.
-    The API enforces RBAC on all endpoints.
-  </p>
-
-  <div class="overflow-x-auto rounded-xl border border-border my-4">
-    <table>
-      <thead>
-        <tr>
-          <th>Role</th>
-          <th>Scope</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td><code>admin</code></td><td>Global</td><td>Full access to all resources across all resellers and merchants.</td></tr>
-        <tr><td><code>reseller</code></td><td>Reseller</td><td>Access to all merchants and templates under the reseller.</td></tr>
-        <tr><td><code>merchant</code></td><td>Merchant</td><td>Access limited to the merchant's own templates and leads.</td></tr>
-        <tr><td><code>user</code></td><td>User</td><td>Read-only access to assigned resources.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <Callout type="info" title="RBAC Filtering">
-    <p>List endpoints automatically filter results based on the caller's role. An <code>admin</code> sees all records; a <code>merchant</code> sees only their own.</p>
-  </Callout>
 
   <h2 id="error-responses">Error Responses</h2>
 

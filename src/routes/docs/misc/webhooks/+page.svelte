@@ -28,7 +28,7 @@
 
   <h3 id="details-callback">Call Details Callback</h3>
   <ApiEndpoint method="POST" path="/{provider}/callback/details" />
-  <p>Delivers the recording URL after the call has been recorded. Used to persist the recording link on the lead.</p>
+  <p>Delivers the recording URL after the call has been recorded.</p>
 
   <h3 id="transfer-callbacks">Warm Transfer Callbacks</h3>
   <ApiEndpoint method="POST" path="/{provider}/callback/transfer/status" />
@@ -67,8 +67,7 @@
 
   <h3 id="webhook-retry">Webhook Retry Logic</h3>
   <p>
-    Outbound webhooks use <code>send_webhook_with_retry()</code> — an exponential backoff retry
-    mechanism that retries on failure up to a configured maximum number of attempts.
+    Outbound webhooks use exponential backoff retry on failure:
   </p>
 
   <div class="overflow-x-auto rounded-xl border border-border my-4">
@@ -92,14 +91,13 @@
   <h3 id="service-callback">Service Callback</h3>
   <p>
     The <code>service_callback</code> is an end-of-conversation callback triggered when the voice
-    pipeline finishes processing. It delivers the final conversation state to the configured endpoint.
+    pipeline finishes processing. Delivers the final conversation state to the configured endpoint.
   </p>
 
   <h3 id="hook-http-requests">Hook HTTP Requests</h3>
   <p>
     Templates can define HTTP request hooks on functions. When a function is triggered during
-    conversation, its configured HTTP hook fires — enabling real-time integrations like CRM
-    updates, database writes, or third-party API calls.
+    conversation, its HTTP hook fires — enabling real-time CRM updates, database writes, or third-party API calls.
   </p>
 
   <CodeBlock lang="json" code={`{
@@ -123,13 +121,11 @@
     <p>Hook HTTP request bodies support variable substitution using <code>{`{variable_name}`}</code> syntax. See <a href="/docs/templates/variables">Variable Substitution</a> for details.</p>
   </Callout>
 
-  <!-- ────────── DevCycle Webhooks ────────── -->
-
   <h2 id="devcycle-webhooks">DevCycle Webhooks</h2>
   <p>
     Breeze Buddy integrates with <strong>DevCycle</strong> for feature flag management.
     DevCycle sends webhook notifications when feature flags are updated, allowing the
-    system to react to configuration changes in real time without redeployment.
+    system to react to configuration changes in real time.
   </p>
 
   <h2 id="error-responses">Error Responses</h2>

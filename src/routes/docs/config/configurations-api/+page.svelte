@@ -8,13 +8,13 @@
 
 <div class="prose">
   <h1>Configurations API</h1>
-  <p class="text-muted-foreground text-lg mb-8">Create, list, and update call execution configurations that control how outbound and inbound calls are handled.</p>
+  <p class="text-muted-foreground text-lg mb-8">Create, list, and update call execution configurations via the API.</p>
 
   <h2 id="overview">Overview</h2>
   <p>
     Call execution configurations define scheduling windows, retry logic, rate limiting,
     provider selection, inbound call rules, and pre-checks. Each configuration is scoped
-    to a reseller and template combination.
+    to a reseller and template combination. Use the API to manage these programmatically.
   </p>
 
   <h2 id="create-config">Create Configuration</h2>

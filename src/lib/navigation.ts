@@ -21,10 +21,18 @@ export const navigation: NavGroup[] = [
     ]
   },
   {
+    title: 'Authentication',
+    items: [
+      { title: 'Overview', href: '/docs/auth/overview' },
+      { title: 'RBAC', href: '/docs/auth/rbac' }
+    ]
+  },
+  {
     title: 'Daily WebRTC',
     items: [
       { title: 'Overview', href: '/docs/daily/overview' },
       { title: 'Web SDK Setup', href: '/docs/daily/web-sdk', badge: 'Guide' },
+      { title: 'Connect API', href: '/docs/daily/connect-api', badge: 'API' },
       { title: 'RTVI Events', href: '/docs/daily/rtvi-events' },
       { title: 'Recording', href: '/docs/daily/recording' }
     ]
@@ -47,7 +55,8 @@ export const navigation: NavGroup[] = [
       { title: 'Flow Nodes', href: '/docs/templates/flow-nodes', badge: 'Core' },
       { title: 'Functions & Hooks', href: '/docs/templates/functions-hooks', badge: 'Core' },
       { title: 'Global Functions', href: '/docs/templates/global-functions' },
-      { title: 'Variables', href: '/docs/templates/variables' }
+      { title: 'Variables', href: '/docs/templates/variables' },
+      { title: 'Templates API', href: '/docs/templates/api', badge: 'API' }
     ]
   },
   {
@@ -61,20 +70,8 @@ export const navigation: NavGroup[] = [
       { title: 'LLM Config', href: '/docs/config/llm' },
       { title: 'Audio & Background', href: '/docs/config/audio' },
       { title: 'User Idle', href: '/docs/config/user-idle' },
-      { title: 'Call Execution', href: '/docs/config/call-execution' }
-    ]
-  },
-  {
-    title: 'API Reference',
-    items: [
-      { title: 'Authentication', href: '/docs/api/auth' },
-      { title: 'Templates API', href: '/docs/api/templates' },
-      { title: 'Leads API', href: '/docs/api/leads' },
-      { title: 'Daily Connect', href: '/docs/api/daily' },
-      { title: 'Configurations', href: '/docs/api/configurations' },
-      { title: 'Numbers', href: '/docs/api/numbers' },
-      { title: 'Analytics', href: '/docs/api/analytics' },
-      { title: 'Webhooks', href: '/docs/api/webhooks' }
+      { title: 'Call Execution', href: '/docs/config/call-execution' },
+      { title: 'Configurations API', href: '/docs/config/configurations-api', badge: 'API' }
     ]
   },
   {
@@ -85,6 +82,15 @@ export const navigation: NavGroup[] = [
       { title: 'Input Collection', href: '/docs/advanced/input-collection' },
       { title: 'IVR Routing', href: '/docs/advanced/ivr' },
       { title: 'Observability', href: '/docs/advanced/observability' }
+    ]
+  },
+  {
+    title: 'Misc',
+    items: [
+      { title: 'Leads API', href: '/docs/misc/leads', badge: 'API' },
+      { title: 'Webhooks', href: '/docs/misc/webhooks' },
+      { title: 'Analytics', href: '/docs/misc/analytics' },
+      { title: 'Numbers & Merchants', href: '/docs/misc/numbers' }
     ]
   }
 ];

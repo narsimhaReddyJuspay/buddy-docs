@@ -141,7 +141,7 @@
     <!-- Content + TOC -->
     <div class="flex flex-1 overflow-hidden">
       <div class="flex-1 overflow-y-auto scroll-smooth" id="docs-scroll-container">
-        <div class="mx-auto max-w-3xl px-6 py-8 pb-24 lg:px-8" data-doc-content>
+        <div class="mx-auto max-w-5xl px-6 py-8 pb-24 lg:px-8" data-doc-content>
           {@render children()}
         </div>
       </div>

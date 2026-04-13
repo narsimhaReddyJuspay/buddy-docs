@@ -8,13 +8,13 @@
 
 <div class="prose">
   <h1>Analytics</h1>
-  <p class="text-muted-foreground text-lg mb-8">Template-agnostic analytics queries with flexible filtering, pagination, and time granularity.</p>
+  <p class="text-muted-foreground text-lg mb-8">Flexible analytics queries for aggregating call data across templates, merchants, and time ranges.</p>
 
   <h2 id="overview">Overview</h2>
   <p>
-    The analytics API provides a unified query interface for aggregating call data across
-    templates, merchants, and time ranges. All queries are submitted via a single endpoint
-    with a structured query body.
+    The analytics API provides a unified query interface for aggregating call data. All
+    queries are submitted via a single endpoint with a structured query body supporting
+    filtering, pagination, and time granularity.
   </p>
 
   <h2 id="query-endpoint">Query Endpoint</h2>
@@ -70,25 +70,6 @@
         <tr><td><code>sentiment_min</code></td><td><code>float</code></td><td>Minimum sentiment score (0.0–1.0).</td></tr>
         <tr><td><code>sentiment_max</code></td><td><code>float</code></td><td>Maximum sentiment score (0.0–1.0).</td></tr>
         <tr><td><code>payload_filters</code></td><td><code>object</code></td><td>Filter on arbitrary payload fields (e.g. <code>{`{"city": "Mumbai"}`}</code>).</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3 id="pagination-granularity">Pagination &amp; Time Granularity</h3>
-
-  <div class="overflow-x-auto rounded-xl border border-border my-4">
-    <table>
-      <thead>
-        <tr>
-          <th>Parameter</th>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td><code>page</code></td><td><code>int</code></td><td>Page number (1-indexed).</td></tr>
-        <tr><td><code>page_size</code></td><td><code>int</code></td><td>Number of results per page.</td></tr>
-        <tr><td><code>granularity</code></td><td><code>string</code></td><td>Time grouping: <code>day</code>, <code>week</code>, or <code>month</code>.</td></tr>
       </tbody>
     </table>
   </div>
